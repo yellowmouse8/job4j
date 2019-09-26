@@ -1,6 +1,6 @@
 package ru.job4j.condition;
 
-public class sqMax {
+public class sQqMax {
     public static int max(int first, int second, int third, int forth) {
         int result = forth;
         if (first > second) {

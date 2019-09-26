@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-public class sqMaxTest {
+public class sQqMaxTest {
     @Test
     public void maxAll() {
         int first = 12;
