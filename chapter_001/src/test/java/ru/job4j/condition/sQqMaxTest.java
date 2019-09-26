@@ -13,7 +13,7 @@ public class sQqMaxTest {
         int third = 5;
         int forth = 2;
         int expected = 15;
-        int result = sqMax.max(first, second, third, forth);
+        int result = sQqMax.max(first, second, third, forth);
         assertThat(result, is(expected));
     }
 
