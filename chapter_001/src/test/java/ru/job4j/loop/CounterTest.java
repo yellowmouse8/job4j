@@ -8,7 +8,7 @@ public class CounterTest {
     @Test
     public void summaVsex (){
         Counter log=new Counter();
-        int expected =56;
+        int expected =36;
         int result=log.add(10,15);
         Assert.assertThat(result, is(expected));
     }
