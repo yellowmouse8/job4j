@@ -7,8 +7,8 @@ public class FactorialTest {
     @Test
     public void factoriail5(){
         Factorial log=new Factorial();
-        int expected=6;
-        int result= log.calc(3);
+        int expected=1;
+        int result= log.calc(0);
         Assert.assertThat(result, is(expected));
     }
     @Test
