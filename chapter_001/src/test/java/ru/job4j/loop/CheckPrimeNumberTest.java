@@ -17,7 +17,7 @@ public class CheckPrimeNumberTest {
     @Test
     public void proverka4(){
         CheckPrimeNumber log= new CheckPrimeNumber();
-        boolean expected =false;
+        boolean expected =true;
         boolean rsl= log.check(4);
         assertThat(rsl, is(expected));
     }
