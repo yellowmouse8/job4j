@@ -11,21 +11,21 @@ public class CheckPrimeNumberTest {
     public void Proverka10 (){
         CheckPrimeNumber log= new CheckPrimeNumber();
         boolean expected=true;
-        boolean rsl =log.check(15);
+        boolean rsl =log.check(6);
         assertThat(rsl, is(expected));
     }
     @Test
-    public void proverka4(){
+    public void proverka11(){
         CheckPrimeNumber log= new CheckPrimeNumber();
         boolean expected =true;
-        boolean rsl= log.check(4);
+        boolean rsl= log.check(11);
         assertThat(rsl, is(expected));
     }
     @Test
-    public void proverka5(){
+    public void proverka7(){
         CheckPrimeNumber log= new CheckPrimeNumber();
         boolean expected=true;
-        boolean rsl= log.check(5);
+        boolean rsl= log.check(7);
         assertThat(rsl, is(expected));
     }
 }
