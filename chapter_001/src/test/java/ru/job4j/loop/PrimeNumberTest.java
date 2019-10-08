@@ -7,7 +7,7 @@ public class PrimeNumberTest {
     @Test
     public void when5(){
         PrimeNumber prime=new PrimeNumber();
-        int count = prime.isPrimeUp(7);
-        assertThat(count,is(4));
+        int count = prime.isPrimeUp(11);
+        assertThat(count,is(5));
     }
 }

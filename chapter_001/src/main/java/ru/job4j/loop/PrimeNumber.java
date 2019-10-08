@@ -7,7 +7,7 @@ public class PrimeNumber {
         boolean bee = true;
         for (int x = 2; x <= finish; x++) {
             bee = true;
-            for (int y = 2; y <= x - 1; y++) {
+            for (int y = 2; y <= Math.sqrt(x); y++) {
                 if (x % y == 0) {
                     bee = false;
                     break;
