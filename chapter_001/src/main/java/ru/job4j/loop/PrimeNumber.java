@@ -4,17 +4,17 @@ public class PrimeNumber {
 
     public static int isPrimeUp(int finish) {
         int count = 0;
-        int dividers = 0;
         boolean bee = true;
-        for (int x = 2; x <=finish; x++) {
-            bee=true;
-            for (int y = 2; y <=x; y++) {
+        for (int x = 2; x <= finish; x++) {
+            bee = true;
+            for (int y = 2; y <= x - 1; y++) {
                 if (x % y == 0) {
                     bee = false;
                     break;
-                }if (bee==true) {
-                    count++;
                 }
+            }
+            if (bee == true) {
+                count++;
             }
         }
         return count;
