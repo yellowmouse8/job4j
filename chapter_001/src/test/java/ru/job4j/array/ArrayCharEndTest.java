@@ -14,7 +14,7 @@ public class ArrayCharEndTest {
     @Test
     public void endCharsFalse(){
         char [] word= new char[]{'M','a','n','d','a','l','o','r'};
-        char[] post= new char[]{'a','s','s'};
+        char[] post= new char[]{'a','s','s','q'};
         boolean result=ArrayEnds.endsWith(word,post);
         assertThat(result,is(false));
     }
