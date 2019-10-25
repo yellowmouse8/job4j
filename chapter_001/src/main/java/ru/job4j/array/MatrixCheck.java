@@ -14,28 +14,32 @@ public class MatrixCheck {
                 System.out.print(sign);
 
                 for (row = 0; row < board.length; row++) {
+
                     for (cell = 0; cell < board.length; cell++) {
-                        if (row == cell && board[row][cell] == 'X') {
-                            x++;
+                        System.out.println("  board row cell " + board[cell][row]);
+
+                        if (board[cell][row]=='X') {
+                            x++;}
+                            if (x == board.length) {
+                                result = true;
+                            }
+
                         }
                     }
-
-                } System.out.println(" rst  === " + rst);
-                if (x == board.length) {
-                    result = true;
                 }
             }
-        }
+
+
         return result;
     }
 
     public static void main(String[] args) {
         char[][] hasWinVertical = {
                 {'X', '_', '_', '_', 'X'},
-                {'_', 'X', '_', '_', 'X'},
-                {'_', '_', 'X', '_', 'X'},
-                {'_', '_', '_', 'X', 'X'},
-                {'_', '_', '_', '_', 'X'},
+                {'X', '_', '_', '_', 'X'},
+                {'X', '_', '_', '_', 'X'},
+                {'X', '_', '_', '_', 'X'},
+                {'X', '_', '_', '_', 'X'},
         };
         boolean win = isWin(hasWinVertical);
         System.out.println(" A board has a winner :" + win);
@@ -43,7 +47,7 @@ public class MatrixCheck {
         char[][] hasWinHor = {
                 {'_', '_', '_', '_', '_'},
                 {'X', 'X', 'X', 'X', 'X'},
-                {'X', 'X', 'X', 'X', 'X'},
+                {'_', '_', '_', '_', '_'},
                 {'_', '_', '_', '_', '_'},
                 {'_', '_', '_', '_', '_'},
         };
@@ -53,7 +57,7 @@ public class MatrixCheck {
         char[][] notWin = {
                 {'_', '_', 'X', '_', '_'},
                 {'_', '_', 'X', '_', '_'},
-                {'_', 'X', '_', '_', '_'},
+                {'_', '_', '_', 'X', '_'},
                 {'_', '_', 'X', '_', '_'},
                 {'_', '_', 'X', '_', '_'},
         };
