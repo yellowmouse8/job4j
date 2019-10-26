@@ -9,25 +9,26 @@ public class MatrixCheck {
         int rst = 0;
 
         for (int row = 0; row < board.length; row++) {
-            for (int cell = 0; cell < board.length; cell++) {
-                char sign = board[row][cell];
-                System.out.print(sign);
-                for (row = 0; row < board.length; row++) {
-                    System.out.println(" board row == " + board[row]);
-                    for (cell = 0; cell < board.length; cell++) {
-                        System.out.println(" board row cell " + board[row][cell]);
-                        if (board[cell][row]=='X') {
-                            x++;}
-                            if (board[row][cell] == 'X') {
-                                rst++;
-                            }
-                        }
-                    }if (rst==board.length){result=true;}
-                if (x==board.length){result=true;}
+            if (board[row][row] == 'X') {
+                for (int cell = 0; cell < board.length; cell++) {
+                    char sign = board[row][cell];
+                    System.out.print(sign);
+                    if (board[row][cell] == 'X') {
+                        x++;
+                    }
+                    if (board[cell][row] == 'X') {
+                        rst++;
+                    }
                 }
+                if (x == board.length || rst == board.length) {
+                    result = true;
+                }
+                break;
             }
+        }
         return result;
     }
+
     public static void main(String[] args) {
         char[][] hasWinVertical = {
                 {'X', 'X', 'X', 'X', 'X'},
@@ -40,11 +41,11 @@ public class MatrixCheck {
         System.out.println(" A board has a winner :" + win);
         System.out.println();
         char[][] hasWinHor = {
-                {'_', '_', '_', '_', '_'},
-                {'X', 'X', '_', 'X', 'X'},
                 {'_', '_', 'X', '_', '_'},
-                {'_', '_', '_', '_', '_'},
-                {'_', '_', '_', '_', '_'},
+                {'_', '_', 'X', '_', '_'},
+                {'_', '_', 'X', '_', '_'},
+                {'_', '_', 'X', '_', '_'},
+                {'_', '_', 'X', '_', '_'},
         };
         boolean winHor = isWin(hasWinHor);
         System.out.println(" A board has a winner: " + winHor);
