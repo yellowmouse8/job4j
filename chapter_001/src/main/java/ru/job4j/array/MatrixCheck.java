@@ -12,42 +12,37 @@ public class MatrixCheck {
             for (int cell = 0; cell < board.length; cell++) {
                 char sign = board[row][cell];
                 System.out.print(sign);
-
                 for (row = 0; row < board.length; row++) {
-
+                    System.out.println(" board row == " + board[row]);
                     for (cell = 0; cell < board.length; cell++) {
-                        System.out.println("  board row cell " + board[cell][row]);
-
+                        System.out.println(" board row cell " + board[row][cell]);
                         if (board[cell][row]=='X') {
                             x++;}
-                            if (x == board.length) {
-                                result = true;
+                            if (board[row][cell] == 'X') {
+                                rst++;
                             }
-
                         }
-                    }
+                    }if (rst==board.length){result=true;}
+                if (x==board.length){result=true;}
                 }
             }
-
-
         return result;
     }
-
     public static void main(String[] args) {
         char[][] hasWinVertical = {
-                {'X', '_', '_', '_', 'X'},
-                {'X', '_', '_', '_', 'X'},
-                {'X', '_', '_', '_', 'X'},
-                {'X', '_', '_', '_', 'X'},
-                {'X', '_', '_', '_', 'X'},
+                {'X', 'X', 'X', 'X', 'X'},
+                {'_', '_', '_', '_', '_'},
+                {'_', '_', '_', '_', '_'},
+                {'_', '_', '_', '_', '_'},
+                {'_', '_', '_', '_', '_'},
         };
         boolean win = isWin(hasWinVertical);
         System.out.println(" A board has a winner :" + win);
         System.out.println();
         char[][] hasWinHor = {
                 {'_', '_', '_', '_', '_'},
-                {'X', 'X', 'X', 'X', 'X'},
-                {'_', '_', '_', '_', '_'},
+                {'X', 'X', '_', 'X', 'X'},
+                {'_', '_', 'X', '_', '_'},
                 {'_', '_', '_', '_', '_'},
                 {'_', '_', '_', '_', '_'},
         };
