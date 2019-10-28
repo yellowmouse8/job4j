@@ -11,15 +11,16 @@ public class sqAreaTest {
         int k = 1;
         int p = 4;
         int expected = 1;
-        int s = SqArea.square(p,k);
+        int s = SqArea.square(p, k);
         assertThat(s, is(expected));
     }
+
     @Test
-    public void when6k2s2(){
-        int k=2;
-        int p=6;
-        int expected=2;
-        int s=SqArea.square(p,k);
+    public void when6k2s2() {
+        int k = 2;
+        int p = 6;
+        int expected = 2;
+        int s = SqArea.square(p, k);
         assertThat(s, is(expected));
     }
 }
