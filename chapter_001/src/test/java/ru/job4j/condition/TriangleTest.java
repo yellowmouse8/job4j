@@ -11,12 +11,13 @@ import static org.junit.Assert.assertThat;
 public class TriangleTest {
     @Test
     public void kogdaSushestvuet() {
-    boolean result= Triangle.exist(3+3,3, 8);
-    Assert.assertThat(result, is(true));
+        boolean result = Triangle.exist(3 + 3, 3, 8);
+        Assert.assertThat(result, is(true));
     }
+
     @Test
-    public void kogdanesushestvuet(){
-        boolean result=Triangle.exist(0.0, 0.0, 0.0);
+    public void kogdanesushestvuet() {
+        boolean result = Triangle.exist(0.0, 0.0, 0.0);
         Assert.assertThat(result, is(false));
     }
 }
