@@ -8,24 +8,26 @@ import static org.junit.Assert.*;
 
 public class CheckPrimeNumberTest {
     @Test
-    public void Proverka10 (){
-        CheckPrimeNumber log= new CheckPrimeNumber();
-        boolean expected=false;
-        boolean rsl =log.check(6);
+    public void Proverka10() {
+        CheckPrimeNumber log = new CheckPrimeNumber();
+        boolean expected = false;
+        boolean rsl = log.check(6);
         assertThat(rsl, is(expected));
     }
+
     @Test
-    public void proverka11(){
-        CheckPrimeNumber log= new CheckPrimeNumber();
-        boolean expected =true;
-        boolean rsl= log.check(11);
+    public void proverka11() {
+        CheckPrimeNumber log = new CheckPrimeNumber();
+        boolean expected = true;
+        boolean rsl = log.check(11);
         assertThat(rsl, is(expected));
     }
+
     @Test
-    public void proverka7(){
-        CheckPrimeNumber log= new CheckPrimeNumber();
-        boolean expected=true;
-        boolean rsl= log.check(7);
+    public void proverka7() {
+        CheckPrimeNumber log = new CheckPrimeNumber();
+        boolean expected = true;
+        boolean rsl = log.check(7);
         assertThat(rsl, is(expected));
     }
 }
