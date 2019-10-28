@@ -14,6 +14,7 @@ public class FitnessTest {
         int month = fit.calc(110, 100);
         assertThat(month, is(expected));
     }
+
     @Test
     public void ivanMenshe() {
         Fitness fit = new Fitness();
@@ -21,10 +22,11 @@ public class FitnessTest {
         int month = fit.calc(60, 100);
         assertThat(month, is(expected));
     }
+
     @Test
-    public void ivanMenshe2(){
-        Fitness fit= new Fitness();
-        int expected= 4;
+    public void ivanMenshe2() {
+        Fitness fit = new Fitness();
+        int expected = 4;
         int month = fit.calc(20, 100);
         assertThat(month, is(expected));
     }

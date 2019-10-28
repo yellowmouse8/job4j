@@ -9,7 +9,7 @@ public class SMax {
                     result = first;
                 }
             } else if(third>forth){
-                result=third;
+                result= third;
             }
         } else if (second > third) {
             if (second > forth) {
