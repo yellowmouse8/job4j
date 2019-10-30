@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class CheckPrimeNumberTest {
     @Test
-    public void Proverka10() {
+    public void proverka10() {
         CheckPrimeNumber log = new CheckPrimeNumber();
         boolean expected = false;
         boolean rsl = log.check(6);

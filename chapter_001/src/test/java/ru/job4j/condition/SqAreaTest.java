@@ -5,9 +5,9 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-public class sqAreaTest {
+public class SqAreaTest {
     @Test
-    public void Whenp4k1s1() {
+    public void whenp4k1s1() {
         int k = 1;
         int p = 4;
         int expected = 1;

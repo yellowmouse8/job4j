@@ -9,19 +9,19 @@ import static org.junit.Assert.assertThat;
 
 public class MaxTest {
     @Test
-    public void Chtobolshe() {
+    public void chtobolshe() {
         int result = Max.max(300, 600);
         assertThat(result, is(600));
     }
 
     @Test
-    public void Leftbolshe() {
+    public void leftbolshe() {
         int left = Max.max(600, 232);
         assertThat(left, is(600));
     }
 
     @Test
-    public void RightBolshe() {
+    public void rightBolshe() {
         int right = Max.max(5654, 12240);
         assertThat(right, is(12240));
     }

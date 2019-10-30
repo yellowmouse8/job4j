@@ -13,7 +13,7 @@ public class PrimeNumber {
                     break;
                 }
             }
-            if (bee == true) {
+            if (bee) {
                 count++;
             }
         }

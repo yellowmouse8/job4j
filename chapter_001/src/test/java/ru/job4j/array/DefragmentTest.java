@@ -10,7 +10,7 @@ public class DefragmentTest {
     public void whenNullNotFirst() {
         String[] imput = {" I ", null, " wanna ", null, " be ", null, " compressed "};
         String[] compressed = Defragment.compress(imput);
-        String[] expected = {" I ", " wanna ", " be ", " compressed ", null, null, null,};
+        String[] expected = {" I ", " wanna ", " be ", " compressed ", null, null, null};
         assertThat(compressed, is(expected));
     }
 
@@ -18,6 +18,6 @@ public class DefragmentTest {
     public void whenNullFirst() {
         String[] imput = {null, " I ", null, " wanna ", null, " be ", " compressed "};
         String[] compressed = Defragment.compress(imput);
-        String[] expected = {" I ", " wanna ", " be ", " compressed ", null, null, null,};
+        String[] expected = {" I ", " wanna ", " be ", " compressed ", null, null, null};
     }
 }

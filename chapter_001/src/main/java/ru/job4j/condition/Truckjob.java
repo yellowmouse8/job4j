@@ -2,15 +2,15 @@ package ru.job4j.condition;
 
 public class Truckjob {
     public static void main(String[] args) {
-        ru.job4j.condition.Driver Vitec = new ru.job4j.condition.Driver();
+        ru.job4j.condition.Driver vitec = new ru.job4j.condition.Driver();
         System.out.println(" ВИтек хочет на работу водителем.");
-        if (!Vitec.Vibor()) {
+        if (!vitec.vibor()) {
             System.out.println(" Надо срочно получить права. ");
-            Vitec.SdalPrava('A');
+            vitec.sdalPrava('A');
         }
-        if (Vitec.Prava('C')) {
+        if (vitec.prava('C')) {
             System.out.println(" ВИтек сегодня работает на Траке");
-        } else if (Vitec.Prava('B')) {
+        } else if (vitec.prava('B')) {
             System.out.println(" Сегодня только такси ");
         } else {
             System.out.println(" Для мотоциклистов только почта банк. ");

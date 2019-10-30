@@ -22,7 +22,7 @@ public class Defragment {
     }
 
     public static void main(String[] args) {
-        String[] imput = {null, " I ", "wanna", null, null, null, " be ", null, " compressed ", null,};
+        String[] imput = {null, " I ", "wanna", null,  null, null, " be ", null, " compressed ", null};
         String[] compressed = compress(imput);
         System.out.println();
         for (int index = 0; index < compressed.length; index++) {

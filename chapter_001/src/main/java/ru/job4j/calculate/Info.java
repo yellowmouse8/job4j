@@ -10,7 +10,7 @@ package ru.job4j.calculate;
  * @version 3.0
  * @since 10.10
  */
-public class info {
+public class Info {
     /**
      * Main вывод на консоль строки содержащую только буквенные символы.
      *

@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
 
 public class MultimaxTest {
     @Test
-    public void ThirdAll() {
+    public void thirdAll() {
         MultiMax check = new MultiMax();
         int result = check.max(3, 4, 6);
         Assert.assertThat(result, is(6));
@@ -29,7 +29,7 @@ public class MultimaxTest {
     }
 
     @Test
-    public void AllnumbersSame() {
+    public void allnumbersSame() {
         MultiMax check = new MultiMax();
         int result = check.max(10, 10, 10);
         Assert.assertThat(result, is(10));
