@@ -20,7 +20,6 @@ public class Defragment {
         }
         return array;
     }
-
     public static void main(String[] args) {
         String[] imput = {null, " I ", "wanna", null,  null, null, " be ", null, " compressed ", null};
         String[] compressed = compress(imput);

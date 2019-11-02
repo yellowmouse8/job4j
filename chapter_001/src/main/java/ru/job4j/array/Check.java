@@ -8,7 +8,6 @@ public class Check {
             if (data[0] != data[index]) {
                 result = false;
                 break;
-
             }
         }
         return result;

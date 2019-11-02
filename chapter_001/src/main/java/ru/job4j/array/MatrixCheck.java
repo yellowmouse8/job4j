@@ -7,7 +7,6 @@ public class MatrixCheck {
         boolean result = false;
         int x = 0;
         int rst = 0;
-
         for (int row = 0; row < board.length; row++) {
             if (board[row][row] == 'X') {
                 for (int cell = 0; cell < board.length; cell++) {
@@ -28,16 +27,15 @@ public class MatrixCheck {
         }
         return result;
     }
-
     public static void main(String[] args) {
-        char[][] hasWinVertical = {
+        char[][] haswinhrizont = {
                 {'X', 'X', 'X', 'X', 'X'},
                 {'_', '_', '_', '_', '_'},
                 {'_', '_', '_', '_', '_'},
                 {'_', '_', '_', '_', '_'},
                 {'_', '_', '_', '_', '_'},
         };
-        boolean win = isWin(hasWinVertical);
+        boolean win = isWin(haswinhrizont);
         System.out.println(" A board has a winner :" + win);
         System.out.println();
         char[][] hasWinHor = {

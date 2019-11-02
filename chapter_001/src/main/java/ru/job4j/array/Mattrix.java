@@ -7,7 +7,6 @@ public class Mattrix {
             for (int index2 = 0; index2 < size; index2++) {
                 table[index][index2] = (index + 1) * (index2 + 1);
             }
-
         }
         return table;
     }
