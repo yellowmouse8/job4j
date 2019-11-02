@@ -13,7 +13,6 @@ public class ArrayEnds {
                 break;
             }
         }
-
         return result;
     }
 }
