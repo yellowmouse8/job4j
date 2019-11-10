@@ -10,14 +10,14 @@ import static org.junit.Assert.assertThat;
 public class MaxTest {
     @Test
     public void chtobolshe() {
-        int result = Max.max(300, 600);
-        assertThat(result, is(600));
+        int result = Max.max(300, 770, 544);
+        assertThat(result, is(770));
     }
 
     @Test
     public void leftbolshe() {
-        int left = Max.max(600, 232);
-        assertThat(left, is(600));
+        int left = Max.max(600, 232, 412, 775);
+        assertThat(left, is(775));
     }
 
     @Test
