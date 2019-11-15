@@ -25,8 +25,8 @@ public class Point {
     }
 
     public static void main(String[] args) {
-        Point a = new Point(6, 1,3);
-        Point b = new Point(5, 2,4);
+        Point a = new Point(6, 1, 3);
+        Point b = new Point(5, 2, 4);
         double dist = a.distance3d(b);
         System.out.println(" Результат точек в системе координат (6-1) и (6-2) это " + dist);
     }

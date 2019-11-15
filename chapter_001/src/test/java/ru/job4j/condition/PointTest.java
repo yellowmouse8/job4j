@@ -16,13 +16,14 @@ public class PointTest {
         double result = a.distance3d(b);
         assertThat(result, is(expected));
     }
+
     @Test
-    public void distance3dM(){
+    public void distance3dM() {
         Point a = new Point(112, 37, 45);
-        Point b = new Point( 110, 26, 102 );
+        Point b = new Point(110, 26, 102);
         double expected = 58.08614292583042;
         double result = a.distance3d(b);
-        assertThat(result , is(expected));
+        assertThat(result, is(expected));
     }
 
     @Test

@@ -30,10 +30,6 @@ public class Triangle {
     }
 
     public boolean exist(double a, double b, double c) {
-        if (a != 0 && b != 0 && c != 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return a != 0 && b != 0 && c != 0;
     }
 }
