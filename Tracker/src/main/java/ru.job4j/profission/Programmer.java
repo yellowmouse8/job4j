@@ -1,7 +1,7 @@
 package ru.job4j.profission;
 
 public class Programmer extends Engineer {
-    public double workHours;
+    private double workHours;
 
     public Programmer(String name, String surname, String education, double birthday) {
         super(name, surname, education, birthday);
@@ -9,6 +9,8 @@ public class Programmer extends Engineer {
 
     public Programmer(String name, String surname, String education, double birthday, double workHours) {
         super(name, surname, education, birthday);
+    }
+    public void setWorkHours (double workHours){
         this.workHours = workHours;
     }
 
