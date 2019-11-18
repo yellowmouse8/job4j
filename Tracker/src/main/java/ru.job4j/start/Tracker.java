@@ -1,6 +1,7 @@
 package ru.job4j.start;
 import ru.job4j.models.*;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Tracker {
@@ -17,32 +18,37 @@ public class Tracker {
         return String.valueOf(System.currentTimeMillis() + rm.nextInt());
     }
     public boolean replace (String id, Item item) {
-        for (int i = 0; i != this.items.length; i++) {
+        for (int i = 0; i != this.position; i++) {
             if (this.items[i].getId().equals(id)){
-
-
+                 item = this.items[i]; // заменил итем на новый.
+                this.items[i]= this.items[i+1];
+                this.items[i+1] = item;
+                break;
             }
-        }
-        return true;
+
+        } return true;
     }
     public boolean delete (String id){
-        return true;
+        Item [] item2 = new Item[items.length];
+        for ( int i = 0; i != this.position; i++ ) {
+            if (this.items[i].getId().equals(id)) {
+                System.arraycopy(items, 0, items , 99, this.position);
+            }
+
+    }return true;
     }
     public Item[] findAll(){
-        Item[] result = new Item[position];
-        for (int i = 0; i!=this.position; i++){
-            result[i] = this.items[i];
-        }
-        return result;
+        return Arrays.copyOf(items, position); // В одну строку , верно ?
     }
-    public Item[] findByName (String key){
-        Item [] result = new Item[items.length];
-        for (int i = 0; i!=this.items.length; i++){
-            if (this.items[i].getName().equals(key)){
-         result[i] = this.items[i];
+    public Item[] findByName (String key) {
+        int rsl = 0;
+        Item[] result = new Item[rsl];
+        for (int i = 0; i != this.position; i++) {
+            if (this.items[position++].getName().equals(key)) {
+                rsl++;
             }
         }
-        return result;
+        return result; // Возвращает массив с найденными Name;
     }
     public Item findById (String id){
         Item result = null;
