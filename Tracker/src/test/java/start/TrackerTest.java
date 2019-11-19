@@ -22,7 +22,9 @@ public class TrackerTest {
         Item next = new Item("Second", " wz1124lgf");
         next.setId(previous.getId());
         tracker.replace(previous.getId(), next);
-        assertThat(tracker.findById(previous.getId()).getName(), is("Second"));
+        String result = tracker.findById(previous.getId()).getName();
+        String expected = "Second";
+        assertThat(result, is(expected));
     }
     @Test
     public void deleteItem (){
@@ -56,14 +58,14 @@ public class TrackerTest {
     public void findByName (){
         Tracker tracker = new Tracker();
         Item item = new Item(" bill " , " id12434");
-        Item item2 = new Item(" of  ", " id451232");
+        Item item2 = new Item(" of ", " id451232");
         Item item3 = new Item (" lading ", " id333455");
         tracker.add(item);
         tracker.add(item2);
         tracker.add(item3);
-        Item [] expected = new Item[]{item2};
-        Item [] result = tracker.findByName(" of ");
-        assertThat(result, is(expected));
+        Item [] expected = new Item[1];
+        expected[0] = item3;
+        assertThat(tracker.findByName(" lading "), is(expected));
     }
     @Test
     public void findByID (){
@@ -74,9 +76,8 @@ public class TrackerTest {
         tracker.add(item);
         tracker.add(item2);
         tracker.add(item3);
-        String result = tracker.findById(item2.getId()).getId();
         String expected = " Todd ";
+        String result = tracker.findById(item2.getId()).getName();
         assertThat(result, is (expected));
-
     }
 }

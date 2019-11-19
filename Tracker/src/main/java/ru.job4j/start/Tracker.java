@@ -20,7 +20,7 @@ public class Tracker {
         return String.valueOf(System.currentTimeMillis() + rm.nextInt());
     }
 
-    public boolean replace(String id, Item item) {
+    public boolean replace (String id, Item item) {
         for (int i = 0; i != this.position; i++) {
             if (this.items[i].getId().equals(id)) {
                 this.items[i] = item;
@@ -35,32 +35,36 @@ public class Tracker {
         for (int i = 0; i != this.position; i++) {
             if (this.items[i].getId().equals(id)) {
                 i2 = i;
-                System.arraycopy(this.items, i2+1 , this.items, i2, this.position-i2-1);
-                this.items[position--]=null;
+                System.arraycopy(this.items, i2 + 1, this.items, i2, this.position - i2 - 1);
+                this.items[position--] = null;
                 break;
             }
         }
     }
 
     public Item[] findAll() {
-        return  Arrays.copyOf(this.items,this.position);// В одну строку , верно ?
+        return Arrays.copyOf(this.items, this.position);// В одну строку , верно ?
     }
 
-    public Item [] findByName(String key) {
-        int rsl = 0;
-        Item [] result = new Item [this.position - rsl];
+    public Item[] findByName(String key) {
+        Item[] rsl = new Item[this.position];
+        int i2 = 0;
         for (int i = 0; i != this.position; i++) {
             if (this.items[i].getName().equals(key)) {
-               rsl++;
+                rsl[i2++] = this.items[i];
             }
         }
-        return result;
+        Item[] name = new Item[i2];
+        for (int i = 0; i != i2; i++) {
+            name[i] = rsl[i];
+        }
+        return name;
     }
 
     public Item findById(String id) {
         Item result = null;
-        for (int i = 0; i!=this.position; i++) {
-            if (this.items[i] != null && this.items[i].getId().equals(id)) {
+        for (int i = 0; i != this.position; i++) {
+            if (this.items[i].getId().equals(id)) {
                 result = this.items[i];
                 break;
             }

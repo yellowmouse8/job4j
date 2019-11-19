@@ -6,7 +6,7 @@ public class StartUI {
         Tracker tracker = new Tracker();
         tracker.add(new Task(" first task", " first id" ));
         for ( Item item: tracker.findAll()){
-            System.out.println(item.getName());
+            System.out.println(item.getName() + " " +  item.getId());
         }
     }
 }
