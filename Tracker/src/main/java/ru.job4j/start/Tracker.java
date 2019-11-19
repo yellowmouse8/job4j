@@ -1,4 +1,5 @@
 package ru.job4j.start;
+
 import ru.job4j.models.*;
 
 import java.util.Arrays;
@@ -9,52 +10,58 @@ public class Tracker {
     private int position = 0;
     private static final Random rm = new Random();
 
-    public Item add (Item item){
+    public Item add(Item item) {
         item.setId(this.generateId());
         this.items[this.position++] = item;
         return item;
     }
-    private String generateId (){
+
+    private String generateId() {
         return String.valueOf(System.currentTimeMillis() + rm.nextInt());
     }
-    public boolean replace (String id, Item item) {
+
+    public boolean replace(String id, Item item) {
         for (int i = 0; i != this.position; i++) {
-            if (this.items[i].getId().equals(id)){
-                 item = this.items[i]; // заменил итем на новый.
-                this.items[i]= this.items[i+1];
-                this.items[i+1] = item;
+            if (this.items[i].getId().equals(id)) {
+                this.items[i] = item;
                 break;
             }
+        }
+        return true;
+    }
 
-        } return true;
-    }
-    public boolean delete (String id){
-        Item [] item2 = new Item[items.length];
-        for ( int i = 0; i != this.position; i++ ) {
-            if (this.items[i].getId().equals(id)) {
-                System.arraycopy(items, 0, items , 99, this.position);
-            }
-
-    }return true;
-    }
-    public Item[] findAll(){
-        return Arrays.copyOf(items, position); // В одну строку , верно ?
-    }
-    public Item[] findByName (String key) {
-        int rsl = 0;
-        Item[] result = new Item[rsl];
+    public void delete(String id) {
+        int i2;
         for (int i = 0; i != this.position; i++) {
-            if (this.items[position++].getName().equals(key)) {
-                rsl++;
+            if (this.items[i].getId().equals(id)) {
+                i2 = i;
+                System.arraycopy(this.items, i2+1 , this.items, i2, this.position-i2-1);
+                this.items[position--]=null;
+                break;
             }
         }
-        return result; // Возвращает массив с найденными Name;
     }
-    public Item findById (String id){
+
+    public Item[] findAll() {
+        return  Arrays.copyOf(this.items,this.position);// В одну строку , верно ?
+    }
+
+    public Item [] findByName(String key) {
+        int rsl = 0;
+        Item [] result = new Item [this.position - rsl];
+        for (int i = 0; i != this.position; i++) {
+            if (this.items[i].getName().equals(key)) {
+               rsl++;
+            }
+        }
+        return result;
+    }
+
+    public Item findById(String id) {
         Item result = null;
-        for (Item item : items){
-            if (item != null && item.getId().equals(id)){
-                result = item;
+        for (int i = 0; i!=this.position; i++) {
+            if (this.items[i] != null && this.items[i].getId().equals(id)) {
+                result = this.items[i];
                 break;
             }
         }
