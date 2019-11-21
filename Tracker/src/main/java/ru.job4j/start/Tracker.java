@@ -20,7 +20,7 @@ public class Tracker {
         return String.valueOf(System.currentTimeMillis() + rm.nextInt());
     }
 
-    public boolean replace (String id, Item item) {
+    public boolean replace(String id, Item item) {
         for (int i = 0; i != this.position; i++) {
             if (this.items[i].getId().equals(id)) {
                 this.items[i] = item;

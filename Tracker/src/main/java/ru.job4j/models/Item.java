@@ -4,9 +4,10 @@ public class Item {
     private String id;
     private String name;
 
-    public Item(String name, String id) {
-        this.name = name;
+    public Item(String id, String name) {
         this.id = id;
+        this.name = name;
+
     }
 
     public String getId() {
