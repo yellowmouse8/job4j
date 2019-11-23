@@ -34,22 +34,41 @@ public class StartUI {
                 String name = scanner.nextLine();
                 Item item = new Item(name, name);
                 tracker.replace(name, new Item(name, name));
+                System.out.println(" Item name: " + name + " editing to "
+                        + tracker.replace(name, new Item(name, name)));
                 System.out.println(" ==== Edit item: " + name + " is complete === ");
             } else if (select == 3) {
-                System.out.println(" Enter the task Id  ");
+                System.out.println(" Enter the task Id for deleting: ");
                 String name = scanner.nextLine();
                 tracker.delete(name);
-                System.out.println(" Delete item by id: " + name + " completed. ");
+                if (tracker.findById(name) != null) {
+                    System.out.println(" Delete item by id: " + name + " completed. ");
+                } else {
+                    System.out.println(" No task with that id. ");
+                }
+
             } else if (select == 4) {
                 System.out.println(" Enter the ID what you want to find: ");
                 String name = scanner.nextLine();
                 tracker.findById(name);
-                System.out.println(" Your founded ID is : " + name);
+                if (tracker.findById(name) != null) {
+                    System.out.println(" Your founded ID: " + name + tracker.findById(name));
+                } else {
+                    System.out.println(" No id with that name  ");
+                }
             } else if (select == 5) {
                 System.out.println(" Find items by name:  ");
                 String name = scanner.nextLine();
-                tracker.findByName(name);
-                System.out.println(" Founded name is : " + name);
+                Item[] items = tracker.findByName(name);
+                if (items != null) {
+                    for (Item item : items) {
+                        System.out.println(" Id " + item.getId() + " Name: "
+                                + item.getName());
+                    }
+                } else {
+                    System.out.println(" No item with that name: " + name + ".");
+                }
+                System.out.println(" End search. ");
             } else if (select == 6) {
                 System.out.println(" Exit program ");
                 run = true;
