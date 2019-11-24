@@ -30,16 +30,18 @@ public class Tracker {
         return true;
     }
 
-    public void delete(String id) {
+    public boolean delete(String id) {
         int i2;
+        boolean result = false;
         for (int i = 0; i != this.position; i++) {
             if (this.items[i].getId().equals(id)) {
                 i2 = i;
                 System.arraycopy(this.items, i2 + 1, this.items, i2, this.position - i2 - 1);
                 this.items[position--] = null;
+                result = true;
                 break;
             }
-        }
+        }return result;
     }
 
     public Item[] findAll() {

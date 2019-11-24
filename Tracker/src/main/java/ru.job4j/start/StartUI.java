@@ -36,7 +36,7 @@ public class StartUI {
                 tracker.replace(name, new Item(name, name));
                 System.out.println(" Item name: " + name + " editing to "
                         + tracker.replace(name, new Item(name, name)));
-                System.out.println(" ==== Edit item: " + name + " is complete === ");
+                System.out.println(" ==== Id item: " + name + " is invalid. === ");
             } else if (select == 3) {
                 System.out.println(" Enter the task Id for deleting: ");
                 String name = scanner.nextLine();
