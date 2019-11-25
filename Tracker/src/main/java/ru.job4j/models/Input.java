@@ -1,9 +1,9 @@
 package ru.job4j.models;
 
 public interface Input {
+    String askStr(String question);
 
-    String ask(String question);
-
+    int askInt(String question);
 }
 
 
