@@ -1,4 +1,4 @@
-package start;
+package ru.job4j.start;
 
 import org.junit.Test;
 import ru.job4j.models.Item;
