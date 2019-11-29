@@ -1,53 +1,82 @@
 package ru.job4j.start;
-
+import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
-import ru.job4j.models.ConsoleInput;
-import ru.job4j.models.Input;
-import ru.job4j.models.Item;
-import ru.job4j.models.StubInput;
+import ru.job4j.models.*;
 import ru.job4j.start.StartUI;
 import ru.job4j.start.Tracker;
 
+import javax.swing.plaf.synth.SynthTextAreaUI;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
+import java.util.StringJoiner;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
-    @Test
-    public void whenAddItem() {
-        String[] answers = {" Fix PC ", " VBN ", " MN ", " SDA"};
-        Input input = new StubInput(answers);
-        Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
-        Item created = tracker.findAll()[0];
-        Item expected = new Item(" ID123 ", " Fix PC ");
-        assertThat(created.getName(), is(expected.getName()));
-    }
 
     @Test
-    public void whenReplaceItem() {
+    public void whenPrtMenu (){
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PrintStream def = System.out;
+        System.setOut(new PrintStream(out));
+
+        StubInput input = new StubInput(new String[]{"0","1","2","3","4","5","6"});
+        StubAction action = new StubAction();
+        new StartUI().init(input, new Tracker(), new UserAction[]{action});
+        String expect = new StringJoiner(System.lineSeparator(), " ", System.lineSeparator())
+                .add("Menu. ")
+                .add("0.  Stub Action. ")
+                .toString();
+        assertThat(new String(out.toByteArray()), is(expect));
+        System.setOut(def);
+    }
+    @Test
+    public void findAllItems (){
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PrintStream def = System.out;
+        System.setOut(new PrintStream(out));
         Tracker tracker = new Tracker();
-        Item item = new Item(" ID12313 ", " Set up");
+        Item item = new Item(" ID341254 ", "  BossFort ");
+        Item item2 = new Item(" ID9235554 ", "  Gamumu ");
+        Item item3 = new Item(" ID4333 ", "  Fix ");
+        Item item4 = new Item(" ID4343 ", "  Leburge ");
         tracker.add(item);
-        String[] answers = {item.getId(), " replace item "};
-        StartUI.editName(new StubInput(answers), tracker);
-        Item replaced = tracker.findById(item.getId());
-        assertThat(replaced.getName(), is(" replace item "));
+        tracker.add(item2);
+        tracker.add(item3);
+        tracker.add(item4);
+        ShowAllItems showAllItems = new ShowAllItems();
+        showAllItems.execute(new StubInput(new String[]{}), tracker);
+        String expected = new StringJoiner(System.lineSeparator(), "" , System.lineSeparator())
+                .add(" Show all items: ")
+                .add(" Id item: " + item.getId() + " Name item: " + item.getName())
+                .add(" Id item: " + item2.getId() + " Name item: " + item2.getName())
+                .add(" Id item: " + item3.getId() + " Name item: " + item3.getName())
+                .add(" Id item: " + item4.getId() + " Name item: " + item4.getName())
+                .add(" Items founded ")
+                .toString();
+        assertThat(new String(out.toByteArray()),is (expected));
+        System.setOut(def);
     }
-
     @Test
-    public void whenDeleteItem() {
+    public void whenFIndbyName (){
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PrintStream stout = System.out;
+        System.setOut(new PrintStream(out));
         Tracker tracker = new Tracker();
-        Item one = new Item(" ID2243 ", " Mave ");
-        Item two = new Item(" ID662243 ", " Hammer ");
-        Item three = new Item(" ID442243 ", " Maul ");
-        tracker.add(one);
-        tracker.add(two);
-        tracker.add(three);
-        String[] answers = {two.getId()};
-        StartUI.delete(new StubInput(answers), tracker);
-        assertThat(tracker.findAll()[1].getName(), is(" Maul "));
+        Input input = new ConsoleInput();
+        Item item = new Item(" Id7772 ", " Unstable ");
+        String name = input.askStr(" Enter your Name item: ");
+        tracker.findByName(name);
+        FindbyName fi = new FindbyName();
+        fi.execute(new StubInput(new String[]{" Enter your name: "}), tracker);
+        String expected = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                .add(" End Search. ")
+                .toString();
+        assertThat(new String(out.toByteArray()), is(expected));
+        System.setOut(stout);
     }
 
 }
