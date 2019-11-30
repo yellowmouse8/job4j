@@ -65,11 +65,15 @@ public class StartUITest {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PrintStream stout = System.out;
         System.setOut(new PrintStream(out));
-        StubInput input = new StubInput(new String[]{" Hoss "});
         Tracker tracker = new Tracker();
-        new FindbyName().execute(input, tracker);
+        Item item3 = new Item(" ID4333 ", "  Fix ");
+        Item item4 = new Item(" ID4343 ", " Leburge ");
+        tracker.add(item3);
+        tracker.add(item4);
+        new FindbyName().execute( new StubInput(new String[]{  item4.getName() }) , tracker);
         String expected = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add(" Hoss ")
+                .add(" Name : " + item4.getName()  )
+                .add("==== End Search. ===== ")
                 .toString();
         assertThat(new String(out.toByteArray()), is (expected));
     }
