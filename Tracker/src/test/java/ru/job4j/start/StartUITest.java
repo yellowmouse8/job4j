@@ -50,12 +50,12 @@ public class StartUITest {
         ShowAllItems showAllItems = new ShowAllItems();
         showAllItems.execute(new StubInput(new String[]{}), tracker);
         String expected = new StringJoiner(System.lineSeparator(), "" , System.lineSeparator())
-                .add(" Show all items: ")
+                .add(" List of all items: ")
                 .add(" Id item: " + item.getId() + " Name item: " + item.getName())
                 .add(" Id item: " + item2.getId() + " Name item: " + item2.getName())
                 .add(" Id item: " + item3.getId() + " Name item: " + item3.getName())
                 .add(" Id item: " + item4.getId() + " Name item: " + item4.getName())
-                .add(" Items founded ")
+                .add(" List of items. ")
                 .toString();
         assertThat(new String(out.toByteArray()),is (expected));
         System.setOut(def);
