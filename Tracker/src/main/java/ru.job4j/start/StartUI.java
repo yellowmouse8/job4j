@@ -1,7 +1,6 @@
 package ru.job4j.start;
 
 import ru.job4j.models.*;
-import ru.job4j.oop.Transport;
 
 
 public class StartUI {
@@ -18,7 +17,7 @@ public class StartUI {
     }
 
     private void showMenu(UserAction[] actions) {
-        System.out.println(" Menu. ");
+        System.out.println(" ");
         for (int i=0; i!=actions.length; i++){
             System.out.println(i + ". "  + actions[i].name());
         }

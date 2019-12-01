@@ -44,6 +44,7 @@ public class StartUITest {
         new StartUI().init(input, new Tracker(),  new UserAction[]{action, createAction, showAllItems
                 , replaceItem, deleteItem, findbyName, findByID, exitProgram});
         String expect = new StringJoiner(System.lineSeparator(), " ", System.lineSeparator())
+               .add("")
                 .add("0.  ==== Menu ==== ")
                 .add("1.  === Add new Item. ==== ")
                 .add("2.  Show all items. ")
