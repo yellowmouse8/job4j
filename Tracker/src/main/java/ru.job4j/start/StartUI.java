@@ -9,7 +9,7 @@ public class StartUI {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
-            int select = input.askInt(" Select: ", actions.length);
+            int select = input.askInt(" Select: ", actions.length );
             UserAction action = actions[select];
             run = action.execute(input, tracker);
 
@@ -24,7 +24,8 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        Input validate = new ValidateInput();
+        Input input = new ConsoleInput();
+        Input validate = new ValidateInput(input);
         Tracker tracker = new Tracker();
         UserAction[] actions = {new CreateAction(),new ShowAllItems(),new ReplaceItem(), new DeleteItem()
         ,new FindByID(), new FindbyName(), new ExitProgram()};
