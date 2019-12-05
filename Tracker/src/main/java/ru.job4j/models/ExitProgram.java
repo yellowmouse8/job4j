@@ -4,8 +4,8 @@ package ru.job4j.models;
 import ru.job4j.start.Tracker;
 
     public class ExitProgram extends BaseAction{
-        public ExitProgram(String name){
-            super(name);
+        public ExitProgram(int key, String name){
+            super(key, name);
         }
 
     public boolean execute (Input input, Tracker tracker){

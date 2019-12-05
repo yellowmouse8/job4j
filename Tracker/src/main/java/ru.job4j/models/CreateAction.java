@@ -5,8 +5,8 @@ import ru.job4j.start.Tracker;
 
 
 public class CreateAction extends BaseAction {
-    public CreateAction( String name ){
-        super(name);
+    public CreateAction(int key, String name ){
+        super(key, name);
     }
     @Override
     public boolean execute (Input input, Tracker tracker){

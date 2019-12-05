@@ -3,8 +3,8 @@ package ru.job4j.models;
 import ru.job4j.start.Tracker;
 
 public class ReplaceItem extends BaseAction {
-    public ReplaceItem(String name){
-        super(name);
+    public ReplaceItem(int key, String name){
+        super(key, name);
     }
     public boolean execute (Input input, Tracker tracker){
         String name = input.askStr(" Enter name: ");

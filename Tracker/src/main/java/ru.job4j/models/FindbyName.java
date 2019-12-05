@@ -3,8 +3,8 @@ package ru.job4j.models;
 import ru.job4j.start.Tracker;
 
 public class FindbyName extends BaseAction {
-        public FindbyName(String name){
-            super(name);
+        public FindbyName(int key, String name){
+            super(key, name);
         }
 
     public boolean execute(Input input, Tracker tracker) {

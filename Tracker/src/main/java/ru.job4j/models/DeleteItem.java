@@ -4,8 +4,8 @@ import ru.job4j.start.Tracker;
 
 public class DeleteItem extends BaseAction {
 
-    public DeleteItem(String name){
-        super(name);
+    public DeleteItem(int key, String name){
+        super(key,name);
     }
 
     public boolean execute(Input input, Tracker tracker) {

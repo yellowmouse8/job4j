@@ -3,6 +3,7 @@ package ru.job4j.models;
 import ru.job4j.start.Tracker;
 
 public interface UserAction {
-    String name();
+    int key();
     boolean execute (Input input, Tracker tracker);
+    String info();
 }

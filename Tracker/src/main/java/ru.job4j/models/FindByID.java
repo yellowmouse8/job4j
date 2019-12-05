@@ -4,8 +4,8 @@ import ru.job4j.start.Tracker;
 
 public class FindByID extends BaseAction {
 
-    public FindByID (String name){
-        super(name);
+    public FindByID (int key, String name){
+        super(key,name);
     }
 
     public boolean execute (Input input , Tracker tracker){

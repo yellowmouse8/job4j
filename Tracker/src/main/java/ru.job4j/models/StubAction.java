@@ -4,10 +4,13 @@ import ru.job4j.start.Tracker;
 
 public class StubAction implements UserAction {
     private boolean call = false;
-
     @Override
-    public String name () {
-        return " ==== Menu ==== ";
+    public int key (){
+        return 0;
+    }
+    @Override
+    public String info () {
+        return " ";
     }
 
     @Override
