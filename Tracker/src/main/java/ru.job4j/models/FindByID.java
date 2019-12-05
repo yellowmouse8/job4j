@@ -2,10 +2,12 @@ package ru.job4j.models;
 
 import ru.job4j.start.Tracker;
 
-public class FindByID implements UserAction {
-    public String name(){
-        return " Find item by ID  : ";
+public class FindByID extends BaseAction {
+
+    public FindByID (String name){
+        super(name);
     }
+
     public boolean execute (Input input , Tracker tracker){
         String id = input.askStr(" Enter the ID what you want to find: ");
         Item found = tracker.findById(id);

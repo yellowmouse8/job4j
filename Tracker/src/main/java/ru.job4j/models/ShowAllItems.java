@@ -2,15 +2,16 @@ package ru.job4j.models;
 
 import ru.job4j.start.Tracker;
 
-public class ShowAllItems implements UserAction {
-    public String name (){
-        return " Show all items. ";
-    }
+    public class ShowAllItems extends  BaseAction {
+        public ShowAllItems(String name){
+            super(name);
+        }
+
     public boolean execute (Input input, Tracker tracker){
-        System.out.println(" Show all items: ");
+        System.out.println(" List of all items: ");
         for (Item items: tracker.findAll()){
             System.out.println(" Id item: " + items.getId() + " Name item: " + items.getName());
-        } System.out.println(" Items founded ");
+        } System.out.println(" List of items. ");
         return true;
     }
 }

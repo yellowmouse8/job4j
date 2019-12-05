@@ -2,10 +2,10 @@ package ru.job4j.models;
 
 import ru.job4j.start.Tracker;
 
-public class DeleteItem implements UserAction {
-    @Override
-    public String name() {
-        return " Delete item.  ";
+public class DeleteItem extends BaseAction {
+
+    public DeleteItem(String name){
+        super(name);
     }
 
     public boolean execute(Input input, Tracker tracker) {

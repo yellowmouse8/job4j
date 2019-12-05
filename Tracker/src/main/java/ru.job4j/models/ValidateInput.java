@@ -38,6 +38,9 @@ public class ValidateInput implements Input {
             } catch (NumberFormatException nfe) {
                 System.out.println(" Please enter validate data again ");
             }
+            // вместо этого , можно написать так if (!invalid){ throw new IllegalException(" please select key
+            // from menu "  )} }
+            // if ( value != input.askInt(question, max ){} )return true;
         } while (invalid);
         return value;
     }
