@@ -11,11 +11,12 @@ public class Paint {
 
     }
     public static void main (String[]args){
-        Paint triangle = new Paint();
-        Paint square = new Paint();
-        triangle.draw(new Triangle());
-        square.draw(new Square());
-
+    Fabriq figureFab = new AbstFactory().createFabriq("figure");
+        Fabriq shapeFab = new AbstFactory().createFabriq("shape");
+        Shape square = shapeFab.createShape("square");
+        Figure line = figureFab.createFigure("arrow");
+        square.draw();
+        line.draw();
     }
 
 }
