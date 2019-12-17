@@ -9,10 +9,10 @@ public class PriorityQueueTEst {
     public void whenHigherPriority (){
     PriorityQueue queue = new PriorityQueue();
     queue.put(new Task("low", 3));
-    queue.put(new Task("urgent", 2));
+    queue.put(new Task("urgent", 1));
     queue.put(new Task("middle", 4));
     Task result = queue.take();
-    assertThat(result.getDesc(), is("middle"));
+    assertThat(result.getDesc(), is("urgent"));
 }
 @Test
     public void whenSamePriority (){
@@ -21,6 +21,6 @@ public class PriorityQueueTEst {
     queue.put(new Task("start", 6));
     queue.put(new Task("middle", 3));
     Task result = queue.take();
-    assertThat(result.getPriority(), is(7));
+    assertThat(result.getPriority(), is(3));
 }
 }
