@@ -1,33 +1,38 @@
 package ru.job4j.collection;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class ConvertList2Array {
-    public int[][] toArray(List<Integer> list, int cells) {
-        int groups = (int) Math.ceil((double) list.size() / cells);
-
-        int[][] array = new int[groups][cells];
+    int [][] toArray (List<Integer> list, int cells){
+        int groups = (int) Math.ceil((double) list.size()/cells);
+        int [][] array = new int [groups][cells];
         int row = 0, cell = 0;
-        for (Integer num : list) {
+        for (Integer num : list){
             array[row][cell] = num;
             cell++;
-            if (cell == groups) {
+            if (cell == groups){
                 row++;
                 cell = 0;
             }
         }
-        return array;
+       return  array;
     }
-
-    public static void main(String[] args) {
-        List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7);
-        ConvertList2Array rj = new ConvertList2Array();
-        int[][] rsl = rj.toArray(list, 3);
-        for (int[] row : rsl) {
-            for (int cell : row) {
-                System.out.println(cell + " ");
+    public List<Integer> convert(List<int[]>list){
+        List<Integer> result = new ArrayList<>();
+        for (int [] tmp : list){
+            for (int i : tmp) {
+                result.add(i);
             }
-            System.out.println();
         }
+        return result;
+    }
+    public static void main(String[]args) {
+    ConvertList2Array op = new ConvertList2Array();
+    List<int []> list = new ArrayList<>();
+    list.add(new int []{1,2,3,4});
+    list.add(new int []{4,5,6,7,7});
+    System.out.println(op.convert(list));
     }
 }
