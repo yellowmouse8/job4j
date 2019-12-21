@@ -5,10 +5,10 @@ import java.util.List;
 
 public class OrderConvert {
 
-    public static HashMap<String, User> process(List<User> users) {
-        HashMap<String, User> map = new HashMap<>();
-        for (User el : users){
-            map.put(el.getId(), el);
+    public static HashMap<Integer, User> process(List<User> users) {
+        HashMap<Integer , User> map = new HashMap<>();
+        for (User oyMy : users){
+            map.put(oyMy.getId(), oyMy);
         }
         return map;
     }
