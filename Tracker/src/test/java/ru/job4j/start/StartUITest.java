@@ -44,15 +44,15 @@ public class StartUITest {
         new StartUI().init(input, new Tracker(),  new UserAction[]{action, createAction, showAllItems
                 , replaceItem, deleteItem, findbyName, findByID, exitProgram});
         String expect = new StringJoiner(System.lineSeparator(), " ", System.lineSeparator())
-               .add("")
-                .add("0.  ==== Menu ==== ")
-                .add("1.   Add new Items ")
-                .add("2.  Show all items. ")
-                .add("3.   Edit item. ")
-                .add("4.   Delete item. ")
-                .add("5.  Find item by Name.")
-                .add("6.  Find item by ID . ")
-                .add("7. Exit program." )
+                .add("=== Menu === ")
+                .add(" ")
+                .add("1 :  Add new Items ")
+                .add("2 :  Show all items. ")
+                .add("3 :  Edit item. ")
+                .add("4 :  Delete item. ")
+                .add("5 :  Find item by ID. ")
+                .add("6 :  Find item by name. ")
+                .add("7 :  Exit program. " )
                 .toString();
         assertThat(this.out.toString(), is(expect));
 
