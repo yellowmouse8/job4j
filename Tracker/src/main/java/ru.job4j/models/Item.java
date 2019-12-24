@@ -1,11 +1,15 @@
 package ru.job4j.models;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Comparator;
+
 public class Item {
     private String id;
     private String name;
 
-    public Item (String name){
-        this.name= name;
+    public Item(String name) {
+        this.name = name;
     }
 
     public Item(String id, String name) {
@@ -29,4 +33,11 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return " Item { " + " name =  " + name +
+                '/' + ", id = " + id + '}';
+    }
+
 }
