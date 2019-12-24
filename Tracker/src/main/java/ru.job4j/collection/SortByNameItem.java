@@ -9,6 +9,6 @@ import java.util.List;
 public class SortByNameItem implements Comparator<Item> {
     @Override
     public int compare(@NotNull Item first, Item second) {
-        return first.getName().compareTo(second.getName());
+        return second.getName().compareTo(first.getName());
     }
 }

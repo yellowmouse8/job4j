@@ -10,11 +10,10 @@ import java.util.List;
 public class ItemSorter {
     public static void main(String[] args) {
         List<Item> list = Arrays.asList(
-                new Item("DI", "de"),
-                new Item("Vi", "d"),
-                new Item("Bw", "w")
+                new Item("0-1", "DI"),
+                new Item("0-2", "Vi"),
+                new Item("0-3", "Bw")
         );
-        System.out.println(list);
         list.sort(new SortByNameItem());
         System.out.println(list);
 
