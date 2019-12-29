@@ -23,14 +23,14 @@ public class StringCompareTest {
     @Test
     public void whenLeftLessRight() {
         StringCompare st = new StringCompare();
-        int rst = st.compare("Ivanova", "Ivanov");
+        int rst = st.compare("Ivanov", "Ivanova");
         assertThat(rst, lessThan(0));
     }
 
     @Test
-    public void whenLeftGreatRight() {
+    public void whenLeftGreaterRight() {
         StringCompare st = new StringCompare();
-        int rst = st.compare("Petrov", "Ivanova");
+        int rst = st.compare("Ivanova", "Petrov");
         assertThat(rst, greaterThan(0));
     }
 
@@ -44,7 +44,7 @@ public class StringCompareTest {
     @Test
     public void secondCharLeftLessThanRight() {
         StringCompare st = new StringCompare();
-        int rst = st.compare("Patrova", "Petrov");
+        int rst = st.compare("Petrov", "Patrova");
         assertThat(rst, lessThan(0));
     }
 }

@@ -12,10 +12,10 @@ public class StringCompare implements Comparator<String> {
         int rsl = 0;
         char[] charL = left.toCharArray();
         char[] charR = right.toCharArray();
-        if (left.length() > right.length()) {
-            rsl = -1;
-        } else if (charR.length > charL.length) {
+        if (charL.length > charR.length) {
             rsl = +1;
+        } else if (charR.length > charL.length) {
+            rsl = -1;
         } else {
                 for (int index = 0; index != charL.length; index++) {
                     result = result + Character.compare(charL[index], charR[index]);
