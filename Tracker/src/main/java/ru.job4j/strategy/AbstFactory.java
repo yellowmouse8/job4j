@@ -1,12 +1,12 @@
 package ru.job4j.strategy;
 
 public class AbstFactory {
-    public Fabriq createFabriq (String typeFabriq){
+    public Fabriq createFabriq(String typeFabr) {
         Fabriq fabriq = null;
-        if ("figure".equals(typeFabriq)){
-            fabriq = new FigureFactory();
-        }else if ("shape".equals(typeFabriq)){
+        if ("shape".equals(typeFabr)) {
             fabriq = new ShapeFactory();
+        } else if ("figure".equals(typeFabr)) {
+            fabriq = new FigureFactory();
         }
         return fabriq;
     }

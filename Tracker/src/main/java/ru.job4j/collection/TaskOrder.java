@@ -8,21 +8,19 @@ import java.util.List;
 
 public class TaskOrder {
 
-
-        public HashSet<TaskL> find (List<TaskL> taskLS) {
-            HashSet<TaskL> taskLHashSet = new HashSet<>();
-            if (taskLS != null) {
-                for (TaskL value : taskLS) {
-                    taskLHashSet.add(value);
-                }
+    public HashSet<TaskL> find(List<TaskL> taskLS) {
+        HashSet<TaskL> taskLHashSet = new HashSet<>();
+        if (taskLS != null) {
+            for (TaskL value : taskLS) {
+                taskLHashSet.add(value);
             }
-                return taskLHashSet;
-
         }
+        return taskLHashSet;
+    }
 
-    public static void main (String[]args){
+    public static void main(String[] args) {
         TaskOrder order = new TaskOrder();
-        List <TaskL> oi = new ArrayList<>();
+        List<TaskL> oi = new ArrayList<>();
         oi.add(new TaskL("12", " Bi"));
         oi.add(new TaskL("2", " UF"));
         oi.add(new TaskL("2", " UF"));

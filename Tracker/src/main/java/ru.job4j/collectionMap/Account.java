@@ -1,13 +1,14 @@
-package ru.job4j.collectionMap;
+package ru.job4j.collectionmap;
 
 public class Account {
     private double value;
     private String requisites;
 
-    public Account (String requisites, double money){
+    public Account(String requisites, double money) {
         this.requisites = requisites;
         this.value = money;
     }
+
     public String getRequisites() {
         return this.requisites;
     }
@@ -15,7 +16,8 @@ public class Account {
     public double getValue() {
         return value;
     }
-    public void setValue (double value){
+
+    public void setValue(double value) {
         this.value = value;
     }
 }

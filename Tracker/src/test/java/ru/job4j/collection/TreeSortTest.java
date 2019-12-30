@@ -1,8 +1,9 @@
 package ru.job4j.collection;
 
 import org.junit.Test;
-import ru.job4j.collectionTreeSet.TreeSort;
-import ru.job4j.collectionTreeSet.UserL;
+import ru.job4j.collectiontreeset.TreeSort;
+import ru.job4j.collectiontreeset.UserL;
+
 
 import java.util.*;
 

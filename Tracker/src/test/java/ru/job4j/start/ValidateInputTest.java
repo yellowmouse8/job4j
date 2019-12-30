@@ -16,27 +16,27 @@ import static org.hamcrest.Matchers.is;
 public class ValidateInputTest {
     private final PrintStream stout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-    @Before
-    public void loadOutput (){
-        System.out.println(" methods before ");
-        System.setOut(new PrintStream(this.out));
 
+    @Before
+    public void loadOutput() {
+        System.out.println(" methods before ");
+        System.setOut(new PrintStream(out));
     }
+
     @After
-    public void backOutput (){
-        System.setOut(this.stout);
+    public void backOutput() {
+        System.setOut(stout);
         System.out.println(" methods after ");
     }
 
-@Test
-    public void whenInvalidInput (){
-
-    ValidateInput input = new ValidateInput(new StubInput(new String[]{"invalid", "1"}));
-    input.askInt("Enter", 1);
-    assertThat(this.out.toString(), is (new StringJoiner(System.lineSeparator(), " ", System.lineSeparator())
-    .add("Please enter validate data again ")
-    .toString()
-    )
-    );
-}
+    @Test
+    public void whenInvalidInput() {
+        ValidateInput input = new ValidateInput(new StubInput(new String[]{"invalid", "1"}));
+        input.askInt("Enter", 1);
+        assertThat(this.out.toString(), is(new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                        .add(" Please enter validate data again ")
+                        .toString()
+                )
+        );
+    }
 }

@@ -1,4 +1,4 @@
-package ru.job4j.collectionMap;
+package ru.job4j.collectionmap;
 
 import java.util.*;
 
@@ -13,10 +13,10 @@ public class BankAccount {
         this.rt.remove(userP);
     }
 
-    public void addAccountToUser(String passport, Account account)  {
-        for (Map.Entry<UserP, List<Account>> i : rt.entrySet()){
+    public void addAccountToUser(String passport, Account account) {
+        for (Map.Entry<UserP, List<Account>> i : rt.entrySet()) {
             if (i.getKey().equals(passport)
-            && i.getValue().indexOf(account) == -1 ){
+                    && i.getValue().indexOf(account) == -1) {
                 i.getValue().add(account);
                 break;
             }
@@ -49,7 +49,7 @@ public class BankAccount {
         boolean rst = false;
         Account srcAccount = getAccount(srcPassport, srcRequisite);
         Account dstAccount = getAccount(dstPassport, dstRequisite);
-        if (srcAccount != null && dstAccount != null && srcAccount.getValue() >= amount){
+        if (srcAccount != null && dstAccount != null && srcAccount.getValue() >= amount) {
             srcAccount.setValue(srcAccount.getValue() - amount);
             dstAccount.setValue(dstAccount.getValue() + amount);
             rst = true;
@@ -57,11 +57,11 @@ public class BankAccount {
         return rst;
     }
 
-    public Account getAccount (String passport , String requisite){
+    public Account getAccount(String passport, String requisite) {
         Account rst = null;
-        if (this.getUserAccounts(passport) != null){
-            for (Account account : this.getUserAccounts(passport)){
-                if (account.getRequisites().equals(requisite)){
+        if (this.getUserAccounts(passport) != null) {
+            for (Account account : this.getUserAccounts(passport)) {
+                if (account.getRequisites().equals(requisite)) {
                     rst = account;
                     break;
                 }
@@ -70,7 +70,7 @@ public class BankAccount {
         return rst;
     }
 
-    public TreeMap< UserP, List<Account>> getRt (){
+    public TreeMap<UserP, List<Account>> getRt() {
         return this.rt;
     }
 }

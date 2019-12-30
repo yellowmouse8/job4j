@@ -1,19 +1,18 @@
 package ru.job4j.strategy;
 
-    public class ShapeFactory implements Fabriq {
-
-        public Shape createShape (String name){
-            Shape shape = null;
-            if ("triangle".equals(name)){
-                shape = new Triangle();
-            }else if ("square".equals(name)){
-                shape = new Square();
-            }
-            return shape;
+public class ShapeFactory implements Fabriq {
+    public Shape createShape(String type) {
+        Shape shape = null;
+        if ("triangle".equals(type)) {
+            shape = new Triangle();
+        } else if ("square".equals(type)) {
+            shape = new Square();
         }
-
-        @Override
-        public Figure createFigure(String typeFigure) {
-            return null;
-        }
+        return shape;
     }
+
+    @Override
+    public Figure createFigure(String typeOfFi) {
+        return null;
+    }
+}

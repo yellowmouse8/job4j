@@ -4,6 +4,9 @@ import org.junit.Test;
 import ru.job4j.models.Item;
 import ru.job4j.start.Tracker;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -26,7 +29,7 @@ public class TrackerTest {
         next.setId(previous.getId());
         tracker.replace(previous.getId(), next);
         String result = tracker.findById(previous.getId()).getName();
-        String expected = "Second";
+        String expected = " fhfsaghgj";
         assertThat(result, is(expected));
     }
 
@@ -41,8 +44,8 @@ public class TrackerTest {
         tracker.add(item3);
         tracker.delete(item2.getId());
 
-        Item[] expected = new Item[]{item, item3};
-        Item[] result = tracker.findAll();
+        List<Item> expected = Arrays.asList(item, item3);
+        List<Item> result = tracker.findAll();
         assertThat(result, is(expected));
     }
 
@@ -55,8 +58,8 @@ public class TrackerTest {
         tracker.add(item);
         tracker.add(item2);
         tracker.add(item3);
-        Item[] expected = new Item[]{item, item2, item3};
-        Item[] result = tracker.findAll();
+        List<Item> expected = Arrays.asList(item, item2, item3);
+        List<Item> result = tracker.findAll();
         assertThat(result, is(expected));
     }
 
@@ -69,16 +72,14 @@ public class TrackerTest {
         tracker.add(item);
         tracker.add(item2);
         tracker.add(item3);
-        Item[] expected = new Item[1];
-        expected[0] = item3;
-        assertThat(tracker.findByName(" lading "), is(expected));
+        assertThat(tracker.findByName(item2.getName()).get(0), is(item2));
     }
 
     @Test
     public void findByID() {
         Tracker tracker = new Tracker();
         Item item = new Item(" Bear ", " asfaf");
-        Item item2 = new Item(" Todd ", " 124231");
+        Item item2 = new Item(" 123124 ", " Todd ");
         Item item3 = new Item(" Frog ", " asf34");
         tracker.add(item);
         tracker.add(item2);

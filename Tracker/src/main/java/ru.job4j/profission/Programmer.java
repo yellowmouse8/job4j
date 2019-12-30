@@ -10,7 +10,8 @@ public class Programmer extends Engineer {
     public Programmer(String name, String surname, String education, double birthday, double workHours) {
         super(name, surname, education, birthday);
     }
-    public void setWorkHours (double workHours){
+
+    public void setWorkHours(double workHours) {
         this.workHours = workHours;
     }
 

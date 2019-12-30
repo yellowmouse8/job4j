@@ -20,27 +20,28 @@ public class User {
     }
 
     @Override
-    public String toString(){
-        return " User { " +
-                "id = " + id + '/' +
-                ", name = " + name + '/' +
-                '}';
+    public String toString() {
+        return " User { "
+                + "id = " + id + '/'
+                + ", name = " + name + '/'
+                + '}';
     }
 
     @Override
-    public boolean equals (Object o){
-        if (this == o){
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()){
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         User user = (User) o;
-        return Objects.equals(id, user.id) &&
-                Objects.equals(name, user.name);
+        return Objects.equals(id, user.id)
+                && Objects.equals(name, user.name);
     }
+
     @Override
-    public int hashCode (){
+    public int hashCode() {
         return Objects.hash(id, name);
     }
 }

@@ -1,6 +1,6 @@
 package ru.job4j.strategy;
 
-public class LIne implements Figure {
+public class LIne implements Figure  {
     @Override
     public String draw() {
         StringBuilder pic = new StringBuilder();

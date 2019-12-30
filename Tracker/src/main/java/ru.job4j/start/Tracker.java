@@ -3,13 +3,12 @@ package ru.job4j.start;
 import ru.job4j.models.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class Tracker {
     private final List<Item> items = new ArrayList<>();
-    private static final Random rm = new Random();
+    private static final Random RM = new Random();
 
     public Item add(Item item) {
         item.setId(this.generateId());
@@ -18,7 +17,7 @@ public class Tracker {
     }
 
     private String generateId() {
-        return String.valueOf(System.currentTimeMillis() + rm.nextInt());
+        return String.valueOf(System.currentTimeMillis() + RM.nextInt());
     }
 
     public boolean replace(String id, Item newItem) {
@@ -45,26 +44,27 @@ public class Tracker {
     public List<Item> findAll() {
         return this.items;
     }
-        public List<Item> findByName (String key){
-            List<Item> result = new ArrayList<>();
-            for (Item item : this.items) {
-                if (item.getName().equals(key)) {
-                    result.add(item);
-                }
-            }
-            return result;
-        }
 
-        public Item findById (String id){
-            Item result = null;
-            for (Item item : items) {
-                if (item.getId().equals(id)) {
-                    result = item;
-                    break;
-                }
+    public List<Item> findByName(String key) {
+        List<Item> result = new ArrayList<>();
+        for (Item item : this.items) {
+            if (item.getName().equals(key)) {
+                result.add(item);
             }
-
-            return result;
         }
+        return result;
     }
+
+    public Item findById(String id) {
+        Item result = null;
+        for (Item item : items) {
+            if (item.getId().equals(id)) {
+                result = item;
+                break;
+            }
+        }
+
+        return result;
+    }
+}
 

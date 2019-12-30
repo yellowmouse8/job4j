@@ -4,21 +4,24 @@ import ru.job4j.start.Tracker;
 
 public class StubAction implements UserAction {
     private boolean call = false;
+
     @Override
-    public int key (){
+    public int key() {
         return 0;
     }
+
     @Override
-    public String info () {
+    public String info() {
         return " ";
     }
 
     @Override
-    public boolean execute (Input input, Tracker tracker) {
+    public boolean execute(Input input, Tracker tracker) {
         call = true;
         return false;
     }
-    public boolean isCall (){
+
+    public boolean isCall() {
         return call;
     }
 }

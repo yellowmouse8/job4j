@@ -1,4 +1,5 @@
 package ru.job4j.start;
+
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
@@ -18,31 +19,33 @@ import static org.junit.Assert.assertThat;
 public class StartUITest {
     private final PrintStream stout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-@Before
-    public void loadOutput (){
-    System.out.println(" execute before method ");
+
+    @Before
+    public void loadOutput() {
+        System.out.println(" execute before method ");
         System.setOut(new PrintStream(this.out));
     }
+
     @After
-    public void backOutput(){
+    public void backOutput() {
         System.setOut(this.stout);
         System.out.println(" execute after method. ");
     }
 
     @Test
-    public void whenPrtMenu (){
+    public void whenPrtMenu() {
 
-        StubInput input = new StubInput(new String[]{"0","1","2","3","4","5","6","7"});
+        StubInput input = new StubInput(new String[]{"0", "1", "2", "3", "4", "5", "6", "7"});
         StubAction action = new StubAction();
-        CreateAction createAction = new CreateAction( 1," Add new Items ");
-        ShowAllItems showAllItems = new ShowAllItems(2," Show all items. ");
-        ReplaceItem replaceItem = new ReplaceItem(3," Edit item. ");
-        DeleteItem deleteItem = new DeleteItem(4," Delete item. ");
-        FindbyName findbyName = new FindbyName(5," Find item by ID. ");
-        FindByID findByID = new FindByID(6," Find item by name. ");
-        ExitProgram exitProgram = new ExitProgram(7," Exit program. ");
-        new StartUI().init(input, new Tracker(),  new UserAction[]{action, createAction, showAllItems
-                , replaceItem, deleteItem, findbyName, findByID, exitProgram});
+        CreateAction createAction = new CreateAction(1, " Add new Items ");
+        ShowAllItems showAllItems = new ShowAllItems(2, " Show all items. ");
+        ReplaceItem replaceItem = new ReplaceItem(3, " Edit item. ");
+        DeleteItem deleteItem = new DeleteItem(4, " Delete item. ");
+        FindbyName findbyName = new FindbyName(5, " Find item by ID. ");
+        FindByID findByID = new FindByID(6, " Find item by name. ");
+        ExitProgram exitProgram = new ExitProgram(7, " Exit program. ");
+        new StartUI().init(input, new Tracker(), new UserAction[]{action, createAction, showAllItems,
+                replaceItem, deleteItem, findbyName, findByID, exitProgram});
         String expect = new StringJoiner(System.lineSeparator(), " ", System.lineSeparator())
                 .add("=== Menu === ")
                 .add(" ")
@@ -52,13 +55,14 @@ public class StartUITest {
                 .add("4 :  Delete item. ")
                 .add("5 :  Find item by ID. ")
                 .add("6 :  Find item by name. ")
-                .add("7 :  Exit program. " )
+                .add("7 :  Exit program. ")
                 .toString();
         assertThat(this.out.toString(), is(expect));
 
     }
+
     @Test
-    public void findAllItems (){
+    public void findAllItems() {
 
         Tracker tracker = new Tracker();
         Item item = new Item(" ID341254 ", "  BossFort ");
@@ -71,7 +75,7 @@ public class StartUITest {
         tracker.add(item4);
         ShowAllItems showAllItems = new ShowAllItems(1, " Show all items. ");
         showAllItems.execute(new StubInput(new String[]{}), tracker);
-        String expected = new StringJoiner(System.lineSeparator(), "" , System.lineSeparator())
+        String expected = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add(" List of all items: ")
                 .add(" Id item: " + item.getId() + " Name item: " + item.getName())
                 .add(" Id item: " + item2.getId() + " Name item: " + item2.getName())
@@ -79,22 +83,23 @@ public class StartUITest {
                 .add(" Id item: " + item4.getId() + " Name item: " + item4.getName())
                 .add(" List of items. ")
                 .toString();
-        assertThat(this.out.toString(),is (expected));
+        assertThat(this.out.toString(), is(expected));
 
     }
+
     @Test
-    public void whenFIndbyName (){
+    public void whenFIndbyName() {
         Tracker tracker = new Tracker();
         Item item3 = new Item("  Fix ");
-        Item item4 = new Item( " Leburge ");
+        Item item4 = new Item(" Leburge ");
         tracker.add(item3);
         tracker.add(item4);
-        new FindbyName(6," Find item by Name ").execute( new StubInput(new String[]{  item4.getName() }) , tracker);
+        new FindbyName(6, " Find item by Name ").execute(new StubInput(new String[]{item4.getName()}), tracker);
         String expected = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add(" Name : " + item4.getName()  )
+                .add(" Name : " + item4.getName())
                 .add("==== End Search. ===== ")
                 .toString();
-        assertThat(this.out.toString(), is (expected));
+        assertThat(this.out.toString(), is(expected));
 
     }
 

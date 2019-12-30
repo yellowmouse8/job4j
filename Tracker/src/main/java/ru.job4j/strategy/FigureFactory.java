@@ -1,17 +1,20 @@
 package ru.job4j.strategy;
 
 public class FigureFactory implements Fabriq {
-    public Figure createFigure (String name){
+    @Override
+    public Figure createFigure(String type) {
         Figure figure = null;
-        if ("circle".equals(name)){
-            figure = new Circle();
-        }else if ("arrow".equals(name)){
+        if ("arrow".equals(type)) {
             figure = new LIne();
+        } else if ("circle".equals(type)) {
+            figure = new Circle();
         }
         return figure;
     }
+
     @Override
-    public Shape createShape(String typeShape){
+    public Shape createShape(String type) {
         return null;
     }
+
 }

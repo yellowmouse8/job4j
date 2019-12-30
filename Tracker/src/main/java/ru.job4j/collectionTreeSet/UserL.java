@@ -1,4 +1,4 @@
-package ru.job4j.collectionTreeSet;
+package ru.job4j.collectiontreeset;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -23,10 +23,10 @@ public class UserL implements Comparable<UserL> {
 
     @Override
     public String toString() {
-        return "UserL{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        return "UserL{"
+                + "name='" + name + '\''
+                + ", age=" + age
+                + '}';
     }
 
     @Override
@@ -38,8 +38,8 @@ public class UserL implements Comparable<UserL> {
             return false;
         }
         UserL userL = (UserL) o;
-        return Objects.equals(age, userL.age) &&
-                Objects.equals(name, userL.name);
+        return Objects.equals(age, userL.age)
+                && Objects.equals(name, userL.name);
     }
 
     @Override

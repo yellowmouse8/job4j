@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class PriorityBeginComp implements Comparator<UserCom> {
     @Override
-    public int compare(UserCom first, UserCom second){
+    public int compare(UserCom first, UserCom second) {
         return Integer.compare(first.getPriority(), second.getPriority());
     }
 }

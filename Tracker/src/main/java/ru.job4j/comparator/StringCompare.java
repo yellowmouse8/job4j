@@ -10,12 +10,12 @@ public class StringCompare implements Comparator<String> {
     @Override
     public int compare(String left, String right) {
         int rst = 0;
-        for (int index = 0; index != left.length() && index != right.length(); index++){
+        for (int index = 0; index != left.length() && index != right.length(); index++) {
             rst = Character.compare(left.charAt(index), right.charAt(index));
-            if (rst != 0){
+            if (rst != 0) {
                 break;
             }
         }
-        return rst != 0? rst : Integer.compare(left.length(), right.length());
+        return rst != 0 ? rst : Integer.compare(left.length(), right.length());
     }
 }
