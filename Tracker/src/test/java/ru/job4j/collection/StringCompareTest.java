@@ -30,7 +30,7 @@ public class StringCompareTest {
     @Test
     public void whenLeftGreaterRight() {
         StringCompare st = new StringCompare();
-        int rst = st.compare("Ivanova", "Petrov");
+        int rst = st.compare("Petrov", "Ivanova");
         assertThat(rst, greaterThan(0));
     }
 
@@ -44,7 +44,7 @@ public class StringCompareTest {
     @Test
     public void secondCharLeftLessThanRight() {
         StringCompare st = new StringCompare();
-        int rst = st.compare("Petrov", "Patrova");
+        int rst = st.compare("Patrova", "Petrov");
         assertThat(rst, lessThan(0));
     }
 }
