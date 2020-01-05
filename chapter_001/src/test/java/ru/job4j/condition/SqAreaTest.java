@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class SqAreaTest {
     @Test
-    public void whenp4k1s1() {
+    public void when4k1s1() {
         int k = 1;
         int p = 4;
         int expected = 1;
