@@ -1,9 +1,17 @@
 package ru.job4j.collectionmap;
 
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class BankAccount {
-    private TreeMap<UserP, List<Account>> rt = new TreeMap<>();
+    private Map<UserP, List<Account>> rt = new HashMap<>();
+
+    public Map<UserP, List<Account>> getRt() {
+        return rt;
+    }
 
     public void addUserP(UserP userP) {
         this.rt.putIfAbsent(userP, new ArrayList<>());
@@ -46,15 +54,9 @@ public class BankAccount {
 
     public boolean transferMoney(String srcPassport, String srcRequisite, String dstPassport, String dstRequisite,
                                  double amount) {
-        boolean rst = false;
         Account srcAccount = getAccount(srcPassport, srcRequisite);
         Account dstAccount = getAccount(dstPassport, dstRequisite);
-        if (srcAccount != null && dstAccount != null && srcAccount.getValue() >= amount) {
-            srcAccount.setValue(srcAccount.getValue() - amount);
-            dstAccount.setValue(dstAccount.getValue() + amount);
-            rst = true;
-        }
-        return rst;
+        return srcAccount != null && dstAccount != null && srcAccount.transfer(dstAccount, amount);
     }
 
     public Account getAccount(String passport, String requisite) {
@@ -68,9 +70,5 @@ public class BankAccount {
             }
         }
         return rst;
-    }
-
-    public TreeMap<UserP, List<Account>> getRt() {
-        return this.rt;
     }
 }

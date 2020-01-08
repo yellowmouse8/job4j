@@ -14,6 +14,10 @@ public class UserP implements Comparable<UserP> {
         this.passport = passport;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public boolean equals(UserP compareUserP) {
         return this.passport.equals(compareUserP.passport);
     }
@@ -21,7 +25,7 @@ public class UserP implements Comparable<UserP> {
     public boolean equals(String passport) {
         return this.passport.equals(passport);
     }
-
+    @Override
     public int hashCode() {
         return this.passport.hashCode();
     }
@@ -29,10 +33,6 @@ public class UserP implements Comparable<UserP> {
     @Override
     public int compareTo(UserP o) {
         return this.passport.compareTo(o.passport);
-    }
-
-    public String getName() {
-        return name;
     }
 
 

@@ -37,7 +37,14 @@ public class BankTransferTest {
         UserP[] expect = {userP2, userP3};
         assertThat(result, is(expect));
     }
-
+    @Test
+    public void whenDeleteUserFromAccount (){
+        bankAccount.addUserP(userP3);
+        Account account = new Account( "12", 200);
+        bankAccount.addAccountToUser("003", account);
+        bankAccount.deleteAccountFromUser("003", account);
+        assertThat(bankAccount.getRt().get(userP3).size(), is(0));
+    }
     @Test
     public void whenAddAccountToUSer() {
         bankAccount.addUserP(userP1);
@@ -56,7 +63,9 @@ public class BankTransferTest {
         Account account2 = new Account("12", 200);
         bankAccount.addAccountToUser("003", account1);
         bankAccount.addAccountToUser("003", account2);
-        assertThat(bankAccount.transferMoney("003", "10", "003", "12",
-                400), is(true));
+        bankAccount.transferMoney("003", "10", "003", "12",
+                400);
+        assertThat(account1.getValue(), is (200.0));
+        assertThat(account2.getValue(), is (600.0));
     }
 }
