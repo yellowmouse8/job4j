@@ -7,11 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public class BankAccount {
-    private Map<UserP, List<Account>> rt = new HashMap<>();
+    public Map<UserP, List<Account>> rt = new HashMap<>();
 
-    public Map<UserP, List<Account>> getRt() {
-        return rt;
-    }
 
     public void addUserP(UserP userP) {
         this.rt.putIfAbsent(userP, new ArrayList<>());
@@ -41,7 +38,7 @@ public class BankAccount {
         }
     }
 
-    public List<Account> getUserAccounts(String passport) {
+    private List<Account> getUserAccounts(String passport) {
         List<Account> rst = null;
         for (Map.Entry<UserP, List<Account>> i : rt.entrySet()) {
             if (i.getKey().equals(passport)) {
@@ -59,7 +56,7 @@ public class BankAccount {
         return srcAccount != null && dstAccount != null && srcAccount.transfer(dstAccount, amount);
     }
 
-    public Account getAccount(String passport, String requisite) {
+    private Account getAccount(String passport, String requisite) {
         Account rst = null;
         if (this.getUserAccounts(passport) != null) {
             for (Account account : this.getUserAccounts(passport)) {
