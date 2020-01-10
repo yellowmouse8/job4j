@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class BankAccount {
-    public Map<UserP, List<Account>> rt = new HashMap<>();
+    private Map<UserP, List<Account>> rt = new HashMap<>();
 
 
     public void addUserP(UserP userP) {
