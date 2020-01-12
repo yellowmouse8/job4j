@@ -2,6 +2,8 @@ package ru.job4j.departments;
 
 import org.jetbrains.annotations.NotNull;
 
+import javax.crypto.spec.DESedeKeySpec;
+import javax.swing.text.DefaultEditorKit;
 import java.util.*;
 
 public class Departments {
@@ -18,17 +20,17 @@ public class Departments {
                 }
             }
         }
-        List<String> list = new ArrayList<>(tmp);
-        Departments.sortAsc(list);
-        return list;
+        return new ArrayList<>(tmp);
     }
 
     public static void sortAsc (List <String> orgs){
-        orgs.addAll(Departments.fillGaps(orgs));
-        orgs.sort(Comparator.naturalOrder());
+        Set <String> set = new TreeSet<>();
+        set.addAll(orgs);
+        set.addAll(Departments.fillGaps(orgs));
     }
     public static void sortDesc (List<String> orgs){
-    orgs.sort(new DepDescComp());
+        orgs.addAll(Departments.fillGaps(orgs));
+        orgs.sort(new DepDescComp());
     }
     public static void main (String[]args){
         List <String> list = new ArrayList<>(Arrays.asList("K1/SK1"
@@ -45,3 +47,4 @@ public class Departments {
         System.out.println(list);
     }
 }
+
