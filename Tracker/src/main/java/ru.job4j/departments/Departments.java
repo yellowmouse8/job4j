@@ -5,46 +5,49 @@ import org.jetbrains.annotations.NotNull;
 import javax.crypto.spec.DESedeKeySpec;
 import javax.swing.text.DefaultEditorKit;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Departments {
+    private Set<String> deps = new TreeSet<>();
 
-    public static List<String> fillGaps(List<String> deps ){
-        HashSet <String> tmp = new HashSet<>();
-        for (String i : deps){
-            String start = "";
-            for (String b : i.split("/")){
-                tmp.add(start + "/" + b);
-                if (!deps.contains(b)){
-                    tmp.add(i);
-
-                }
+    private static List<String> fillGaps(String[] deps) {
+        List<String> tmp = new ArrayList<>();
+        for (int i = 0; i != deps.length; i++) {
+            StringJoiner sj = new StringJoiner("/");
+            for (int p = 0; p <= i; p++) {
+                sj.add(deps[p]);
             }
+            tmp.add(sj.toString());
         }
-        return new ArrayList<>(tmp);
+        return tmp;
     }
 
-    public static void sortAsc (List <String> orgs){
-        Set <String> set = new TreeSet<>();
-        set.addAll(orgs);
-        set.addAll(Departments.fillGaps(orgs));
+    public Set<String> getDeps() {
+        return deps;
     }
-    public static void sortDesc (List<String> orgs){
-        orgs.addAll(Departments.fillGaps(orgs));
-        orgs.sort(new DepDescComp());
+
+    public void setDeps(Set<String> depo) {
+        this.deps = depo;
+        deps.addAll(depo.stream().map(e -> e.split("/")).distinct().map(Departments::fillGaps)
+                .flatMap(List::stream)
+                .collect(Collectors.toList()));
     }
-    public static void main (String[]args){
-        List <String> list = new ArrayList<>(Arrays.asList("K1/SK1"
-                ,"K1/SK2"
-                ,"K1/SK1/SSK1"
-                ,"K1/SK1/SSK2"
-                ,"K2"
-                ,"K2/SK1/SSK1"
-                ,"K2/SK1/SSK2"));
-        System.out.println(Departments.fillGaps(list));
-        Departments.sortDesc(list);
-        System.out.println(list);
-        Departments.sortAsc(list);
-        System.out.println(list);
+
+    public void sortAsc() {
+        Set<String> set = new TreeSet<>(Comparator.comparing((String o) -> o.split("/")[0])
+                .thenComparing(o -> o));
+        set.addAll(deps);
+        deps = set;
+
+    }
+
+    public void sortDesc() {
+        Set<String> set = new TreeSet<>((o1, o2) -> {
+            int tipResult = o2.split("/")[0].compareTo(o1.split("/")[0]);
+            return tipResult != 0 ? tipResult : o1.compareTo(o2);
+        });
+        set.addAll(deps);
+        deps = set;
     }
 }
 
