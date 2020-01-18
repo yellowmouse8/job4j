@@ -4,21 +4,24 @@ import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
 import ru.job4j.models.*;
-import ru.job4j.start.StartUI;
-import ru.job4j.start.Tracker;
 
-import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Scanner;
 import java.util.StringJoiner;
+import java.util.function.Consumer;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
-    private final PrintStream stout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+    final PrintStream stout = new PrintStream(out);
+    private final Consumer<String> output = new Consumer<String>() {
+        @Override
+        public void accept(String s) {
+            stout.println(s);
+        }
+    };
 
     @Before
     public void loadOutput() {
@@ -28,38 +31,9 @@ public class StartUITest {
 
     @After
     public void backOutput() {
-        System.setOut(this.stout);
         System.out.println(" execute after method. ");
     }
 
-    @Test
-    public void whenPrtMenu() {
-
-        StubInput input = new StubInput(new String[]{"0", "1", "2", "3", "4", "5", "6", "7"});
-        StubAction action = new StubAction();
-        CreateAction createAction = new CreateAction(1, " Add new Items ");
-        ShowAllItems showAllItems = new ShowAllItems(2, " Show all items. ");
-        ReplaceItem replaceItem = new ReplaceItem(3, " Edit item. ");
-        DeleteItem deleteItem = new DeleteItem(4, " Delete item. ");
-        FindbyName findbyName = new FindbyName(5, " Find item by ID. ");
-        FindByID findByID = new FindByID(6, " Find item by name. ");
-        ExitProgram exitProgram = new ExitProgram(7, " Exit program. ");
-        new StartUI().init(input, new Tracker(), new UserAction[]{action, createAction, showAllItems,
-                replaceItem, deleteItem, findbyName, findByID, exitProgram});
-        String expect = new StringJoiner(System.lineSeparator(), " ", System.lineSeparator())
-                .add("=== Menu === ")
-                .add(" ")
-                .add("1 :  Add new Items ")
-                .add("2 :  Show all items. ")
-                .add("3 :  Edit item. ")
-                .add("4 :  Delete item. ")
-                .add("5 :  Find item by ID. ")
-                .add("6 :  Find item by name. ")
-                .add("7 :  Exit program. ")
-                .toString();
-        assertThat(this.out.toString(), is(expect));
-
-    }
 
     @Test
     public void findAllItems() {
