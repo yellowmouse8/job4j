@@ -1,5 +1,6 @@
 package ru.job4j.start;
 
+import org.hamcrest.core.Is;
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
@@ -22,6 +23,15 @@ public class StartUITest {
             stout.println(s);
         }
     };
+    private final String menu = new StringBuilder()
+            .append("0 :  Add new Items. \r\n")
+            .append("1 :  Show all items. \r\n")
+            .append("2 :  Edit item. \r\n")
+            .append("3 :  Delete item. \r\n")
+            .append("4 :  Find item by ID. \r\n")
+            .append("5 :  Find item by name. \r\n")
+            .append("6 :  Exit program. ")
+            .toString();
 
     @Before
     public void loadOutput() {
@@ -31,51 +41,53 @@ public class StartUITest {
 
     @After
     public void backOutput() {
+        System.setOut(this.stout);
         System.out.println(" execute after method. ");
     }
 
 
     @Test
     public void findAllItems() {
-
         Tracker tracker = new Tracker();
-        Item item = new Item(" ID341254 ", "  BossFort ");
-        Item item2 = new Item(" ID9235554 ", "  Gamumu ");
-        Item item3 = new Item(" ID4333 ", "  Fix ");
-        Item item4 = new Item(" ID4343 ", "  Leburge ");
-        tracker.add(item);
-        tracker.add(item2);
-        tracker.add(item3);
-        tracker.add(item4);
-        ShowAllItems showAllItems = new ShowAllItems(1, " Show all items. ");
-        showAllItems.execute(new StubInput(new String[]{}), tracker);
-        String expected = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add(" List of all items: ")
-                .add(" Id item: " + item.getId() + " Name item: " + item.getName())
-                .add(" Id item: " + item2.getId() + " Name item: " + item2.getName())
-                .add(" Id item: " + item3.getId() + " Name item: " + item3.getName())
-                .add(" Id item: " + item4.getId() + " Name item: " + item4.getName())
-                .add(" List of items. ")
-                .toString();
-        assertThat(this.out.toString(), is(expected));
-
+        Item item1 = tracker.add(new Item("  BossFort "));
+        Item item2 = tracker.add(new Item("  Gamumu "));
+        Item item3 = tracker.add(new Item("  Fix "));
+        Item item4 = tracker.add(new Item("  Leburge "));
+        Input input = new StubInput(new String[]{"1", "y"});
+        new StartUI(input, tracker, output).init();
+        assertThat(
+                new String(out.toByteArray()),
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add(menu)
+                                .add(" Name item: " + item1.getName())
+                                .add(" Name item: " + item2.getName())
+                                .add(" Name item: " + item3.getName())
+                                .add(" Name item: " + item4.getName())
+                                .add(" List of items. ")
+                                .toString()
+                )
+        );
     }
 
     @Test
     public void whenFIndbyName() {
         Tracker tracker = new Tracker();
-        Item item3 = new Item("  Fix ");
-        Item item4 = new Item(" Leburge ");
+        Item item2 = new Item("  Fix ");
+        Item item3 = new Item("Leburge");
+        Item item4 = new Item("Gamumu");
+        tracker.add(item2);
         tracker.add(item3);
         tracker.add(item4);
-        new FindbyName(6, " Find item by Name ").execute(new StubInput(new String[]{item4.getName()}), tracker);
-        String expected = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add(" Name : " + item4.getName())
+        Input input = new StubInput(new String[]{"5", "Leburge", "y"});
+        new StartUI(input, tracker, output).init();
+        assertThat(new String(out.toByteArray()), is(new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                .add(menu)
+                .add(" Name : " + item3.getName())
                 .add("==== End Search. ===== ")
-                .toString();
-        assertThat(this.out.toString(), is(expected));
+                .toString()
 
+        ));
     }
-
 }
 
