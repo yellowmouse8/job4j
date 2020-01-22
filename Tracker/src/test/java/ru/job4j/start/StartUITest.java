@@ -24,12 +24,18 @@ public class StartUITest {
         }
     };
     private final String menu = new StringBuilder()
-            .append("0 :  Add new Items. \r\n")
-            .append("1 :  Show all items. \r\n")
-            .append("2 :  Edit item. \r\n")
-            .append("3 :  Delete item. \r\n")
-            .append("4 :  Find item by ID. \r\n")
-            .append("5 :  Find item by name. \r\n")
+            .append("0 :  Add new Items. ")
+            .append(System.lineSeparator())
+            .append("1 :  Show all items. ")
+            .append(System.lineSeparator())
+            .append("2 :  Edit item. ")
+            .append(System.lineSeparator())
+            .append("3 :  Delete item. ")
+            .append(System.lineSeparator())
+            .append("4 :  Find item by ID. ")
+            .append(System.lineSeparator())
+            .append("5 :  Find item by name. ")
+            .append(System.lineSeparator())
             .append("6 :  Exit program. ")
             .toString();
 
