@@ -15,7 +15,7 @@ public class StartUI {
     private final Tracker tracker;
     private final Consumer<String> output;
 
-    public StartUI (Input input, Tracker tracker, Consumer<String> output){
+    public StartUI(Input input, Tracker tracker, Consumer<String> output) {
         this.input = input;
         this.tracker = tracker;
         this.output = output;
@@ -25,13 +25,13 @@ public class StartUI {
         MenuTracker menu = new MenuTracker(this.input, this.tracker, output);
         List<Integer> list = new ArrayList<>();
         menu.fillActions();
-        for (int i = 0; i != menu.getActionsLength(); i++){
+        for (int i = 0; i != menu.getActionsLength(); i++) {
             list.add(i);
         }
         do {
             menu.show();
             menu.select(input.askInt("Выберете действие: ", list.toArray().length));
-        } while (! "y".equals(this.input.askStr("Выход?(y/n): ")));
+        } while (!"y".equals(this.input.askStr("Выход?(y/n): ")));
     }
 
 
