@@ -9,6 +9,9 @@ import java.util.Map;
 public class BankAccount {
     private Map<UserP, List<Account>> rt = new HashMap<>();
 
+    public Map<UserP, List<Account>> getRt() {
+        return rt;
+    }
 
     public void addUserP(UserP userP) {
         this.rt.putIfAbsent(userP, new ArrayList<>());

@@ -22,7 +22,7 @@ public class BankTransferTest {
         bankAccount.addUserP(userP2);
         bankAccount.addUserP(userP4);
         UserP[] userPS = new UserP[2];
-        bankAccount.rt.keySet().toArray(userPS);
+        bankAccount.getRt().keySet().toArray(userPS);
         assertThat(userPS[0].getName(), is("Lom"));
     }
 
@@ -32,8 +32,8 @@ public class BankTransferTest {
         bankAccount.addUserP(userP2);
         bankAccount.addUserP(userP3);
         bankAccount.deleteUserP(userP1);
-        UserP[] result = new UserP[bankAccount.rt.size()];
-        bankAccount.rt.keySet().toArray(result);
+        UserP[] result = new UserP[bankAccount.getRt().size()];
+        bankAccount.getRt().keySet().toArray(result);
         UserP[] expect = {userP2, userP3};
         assertThat(result, is(expect));
     }
@@ -44,7 +44,7 @@ public class BankTransferTest {
         Account account = new Account("12", 200);
         bankAccount.addAccountToUser("003", account);
         bankAccount.deleteAccountFromUser("003", account);
-        assertThat(bankAccount.rt.get(userP3).size(), is(0));
+        assertThat(bankAccount.getRt().get(userP3).size(), is(0));
     }
 
     @Test
@@ -52,8 +52,8 @@ public class BankTransferTest {
         bankAccount.addUserP(userP1);
         Account account = new Account("10", 10000);
         bankAccount.addAccountToUser("001", account);
-        Account[] result = new Account[bankAccount.rt.size()];
-        bankAccount.rt.get(userP1).toArray(result);
+        Account[] result = new Account[bankAccount.getRt().size()];
+        bankAccount.getRt().get(userP1).toArray(result);
         Account[] expect = {account};
         assertThat(result, is(expect));
     }
