@@ -1,7 +1,5 @@
 package ru.job4j.collectionmap;
 
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class Account {
@@ -25,6 +23,18 @@ public class Account {
         this.value = value;
     }
 
+    public void setRequisites(String name) {
+        this.requisites = requisites;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "value=" + value +
+                ", requisites='" + requisites + '\'' +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -43,13 +53,10 @@ public class Account {
         return Objects.hash(value, requisites);
     }
 
-    public boolean transfer(Account target, double amount) {
-        boolean rst = false;
+    void transfer(Account target, double amount) {
         if (this.value >= amount && amount > 0) {
             this.value -= amount;
             target.setValue(target.getValue() + amount);
-            rst = true;
         }
-        return rst;
     }
 }
