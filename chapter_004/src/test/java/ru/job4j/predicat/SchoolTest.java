@@ -2,6 +2,7 @@ package ru.job4j.predicat;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,5 +60,14 @@ public class SchoolTest {
         expected.put(st9.getSurname(), st9);
         expected.put(st10.getSurname(), st10);
         assertThat(this.school.convertMap(list), is(expected));
+    }
+
+    @Test
+    public void levelOfNull() {
+        List<Student> tmp = new ArrayList<>(list);
+        tmp.add(1, null);
+        tmp.add(8, null);
+        List<Student> expected = List.of(st10, st9, st8, st7, st6);
+        assertThat(this.school.levelOf(tmp), is(expected));
     }
 }

@@ -16,4 +16,12 @@ public class Student {
     public String getSurname() {
         return surname;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "surname='" + surname + '\'' +
+                ", score=" + score +
+                '}';
+    }
 }
