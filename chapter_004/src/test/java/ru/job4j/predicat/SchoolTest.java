@@ -68,6 +68,6 @@ public class SchoolTest {
         tmp.add(1, null);
         tmp.add(8, null);
         List<Student> expected = List.of(st10, st9, st8, st7, st6);
-        assertThat(this.school.levelOf(tmp), is(expected));
+        assertThat(this.school.levelOf(tmp, 50), is(expected));
     }
 }
