@@ -14,9 +14,9 @@ import static org.junit.Assert.assertTrue;
 public class OrderConvertTest {
     @Test
     public void whenSingleOrder() {
-        List<User> users = new ArrayList<>();
-        users.add(new User(1, "Quest"));
-        users.add(new User(2, "Sa"));
+        List<User> users = List.of(
+        new User(1, "Quest"),
+        new User(2, "Sa"));
         HashMap<Integer, User> map = OrderConvert.process(users);
         assertThat(map.get(1), is(new User(1, "Quest")));
     }

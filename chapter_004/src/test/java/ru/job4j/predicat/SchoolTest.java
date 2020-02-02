@@ -48,17 +48,17 @@ public class SchoolTest {
 
     @Test
     public void convertTest() {
-        Map<String, Student> expected = new HashMap<>();
-        expected.put(st1.getSurname(), st1);
-        expected.put(st2.getSurname(), st2);
-        expected.put(st3.getSurname(), st3);
-        expected.put(st4.getSurname(), st4);
-        expected.put(st5.getSurname(), st5);
-        expected.put(st6.getSurname(), st6);
-        expected.put(st7.getSurname(), st7);
-        expected.put(st8.getSurname(), st8);
-        expected.put(st9.getSurname(), st9);
-        expected.put(st10.getSurname(), st10);
+        Map<String, Student> expected = Map.of(
+        st1.getSurname(), st1,
+        st2.getSurname(), st2,
+        st3.getSurname(), st3,
+        st4.getSurname(), st4,
+        st5.getSurname(), st5,
+        st6.getSurname(), st6,
+        st7.getSurname(), st7,
+        st8.getSurname(), st8,
+        st9.getSurname(), st9,
+        st10.getSurname(), st10);
         assertThat(this.school.convertMap(list), is(expected));
     }
 

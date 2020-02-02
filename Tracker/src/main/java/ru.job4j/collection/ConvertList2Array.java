@@ -32,9 +32,7 @@ public class ConvertList2Array {
 
     public static void main(String[] args) {
         ConvertList2Array op = new ConvertList2Array();
-        List<int[]> list = new ArrayList<>();
-        list.add(new int[]{1, 2, 3, 4});
-        list.add(new int[]{4, 5, 6, 7, 7});
+        List<int[]> list = List.of(new int[]{1, 2, 3, 4}, new int[]{4, 5, 6, 7, 7});
         System.out.println(op.convert(list));
     }
 }
