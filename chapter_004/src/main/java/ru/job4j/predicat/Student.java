@@ -19,9 +19,9 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "surname='" + surname + '\'' +
-                ", score=" + score +
-                '}';
+        return "Student{"
+                + "surname='" + surname + '\''
+                + ", score=" + score
+                + '}';
     }
 }

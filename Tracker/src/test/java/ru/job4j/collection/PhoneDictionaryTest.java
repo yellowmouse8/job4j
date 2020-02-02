@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 public class PhoneDictionaryTest {
     @Test
     public void findByName() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(new Person("Pavel", "Shah", "+9943434", "Moscow"));
         ArrayList<Person> persons = phones.find("Shah");
         assertThat(persons.get(0).getName(), is("Pavel"));

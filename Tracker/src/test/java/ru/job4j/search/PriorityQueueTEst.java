@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 public class PriorityQueueTEst {
     @Test
     public void whenHigherPriority() {
-        PriorityQueue queue = new PriorityQueue();
+        var queue = new PriorityQueue();
         queue.put(new Task("low", 3));
         queue.put(new Task("urgent", 1));
         queue.put(new Task("middle", 4));
